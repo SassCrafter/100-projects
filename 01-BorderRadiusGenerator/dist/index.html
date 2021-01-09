@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <script src="./js/app.js" defer></script>
+    <title>Border Radius Generator</title>
+  </head>
+  <body>
+    <section class="generator">
+      <div class="generator__controlls generator__controlls--preview">
+        <h4 class="generator__controlls-title">corner preveiw</h4>
+        <div class="generator__inputs">
+          <div class="generator__input-group">
+            <label for="preview-bg" class="generator__label"
+              >background color</label
+            >
+            <div>
+              <input
+                type="color"
+                id="preview-bg"
+                class="generator__input"
+                value="#ffffff"
+              />
+              <input type="text" class="generator__input" id="preview-bg-hex" />
+            </div>
+          </div>
+          <!-- Input Group End-->
+          <div class="generator__input-group">
+            <label for="container-bg" class="generator__label"
+              >container color</label
+            >
+            <div>
+              <input
+                type="color"
+                id="container-bg"
+                class="generator__input"
+                value="#cccccc"
+              />
+              <input
+                type="text"
+                class="generator__input"
+                id="container-bg-hex"
+              />
+            </div>
+          </div>
+          <!-- Input Group End-->
+        </div>
+        <div class="generator__preview-container">
+          <div class="generator__preview-box" id="preview-box"></div>
+        </div>
+      </div>
+      <!-- Generator Controll Preview End -->
+
+      <div class="generator__controlls generator__controlls--radius">
+        <h4 class="generator__controlls-title">radius options</h4>
+        <div class="generator__controll">
+          <div class="generator__controll-header">
+            <h3 class="generator__controll-title">basic radius options</h3>
+          </div>
+          <div class="generator__controll-body">
+            <div class="generator__radio-group">
+              <div>
+                <input
+                  type="radio"
+                  class="generator__input"
+                  id="radius-val-1"
+                  name="radius-values"
+                />
+                <label class="generator__label" for="radius-val-1"
+                  >1 value</label
+                >
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  class="generator__input"
+                  id="radius-val-2"
+                  name="radius-values"
+                />
+                <label class="generator__label" for="radius-val-2"
+                  >2 values</label
+                >
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  class="generator__input"
+                  id="radius-val-3"
+                  name="radius-values"
+                />
+                <label class="generator__label" for="radius-val-3"
+                  >3 values</label
+                >
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  class="generator__input"
+                  id="radius-val-4"
+                  name="radius-values"
+                />
+                <label class="generator__label" for="radius-val-4"
+                  >4 value</label
+                >
+              </div>
+              <div>
+                <label for="radius-all" class="generator__label"
+                  >radius all corners:
+                  <span class="radius-number">5px</span></label
+                >
+                <input
+                  type="range"
+                  class="generator__input"
+                  min="0"
+                  max="100"
+                  value="5"
+                  id="radius-all"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
