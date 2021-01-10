@@ -3,6 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,300&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
+
     <link rel="stylesheet" href="./css/main.css" />
     <script src="./js/app.js" defer></script>
     <title>Border Radius Generator</title>
@@ -11,8 +27,8 @@
     <section class="generator">
       <div class="generator__controlls generator__controlls--preview">
         <h4 class="generator__controlls-title">corner preveiw</h4>
-        <div class="generator__inputs">
-          <div class="generator__input-group">
+        <div class="generator__inputs flex">
+          <div class="generator__input-group flex__item">
             <label for="preview-bg" class="generator__label"
               >background color</label
             >
@@ -23,11 +39,16 @@
                 class="generator__input"
                 value="#ffffff"
               />
-              <input type="text" class="generator__input" id="preview-bg-hex" />
+              <input
+                type="text"
+                class="generator__input"
+                id="preview-bg-hex"
+                value="#FFFFFF"
+              />
             </div>
           </div>
           <!-- Input Group End-->
-          <div class="generator__input-group">
+          <div class="generator__input-group flex__item">
             <label for="container-bg" class="generator__label"
               >container color</label
             >
@@ -42,6 +63,7 @@
                 type="text"
                 class="generator__input"
                 id="container-bg-hex"
+                value="#CCCCCC"
               />
             </div>
           </div>
@@ -53,62 +75,68 @@
       </div>
       <!-- Generator Controll Preview End -->
 
-      <div class="generator__controlls generator__controlls--radius">
-        <h4 class="generator__controlls-title">radius options</h4>
-        <div class="generator__controll">
-          <div class="generator__controll-header">
-            <h3 class="generator__controll-title">basic radius options</h3>
-          </div>
-          <div class="generator__controll-body">
-            <div class="generator__radio-group">
-              <div>
-                <input
-                  type="radio"
-                  class="generator__input"
-                  id="radius-val-1"
-                  name="radius-values"
-                />
-                <label class="generator__label" for="radius-val-1"
-                  >1 value</label
-                >
-              </div>
-              <div>
-                <input
-                  type="radio"
-                  class="generator__input"
-                  id="radius-val-2"
-                  name="radius-values"
-                />
-                <label class="generator__label" for="radius-val-2"
-                  >2 values</label
-                >
-              </div>
-              <div>
-                <input
-                  type="radio"
-                  class="generator__input"
-                  id="radius-val-3"
-                  name="radius-values"
-                />
-                <label class="generator__label" for="radius-val-3"
-                  >3 values</label
-                >
-              </div>
-              <div>
-                <input
-                  type="radio"
-                  class="generator__input"
-                  id="radius-val-4"
-                  name="radius-values"
-                />
-                <label class="generator__label" for="radius-val-4"
-                  >4 value</label
-                >
+      <div class="flex">
+        <div class="generator__controlls flex__item">
+          <h4 class="generator__controlls-title">radius options</h4>
+          <div class="generator__controll generator__controll--radius">
+            <div class="generator__controll-header controll-trigger">
+              <h3 class="generator__controll-title">basic radius options</h3>
+              <i class="fas fa-chevron-up generator__controll-trigger"></i>
+            </div>
+            <div class="generator__controll-body open">
+              <div class="generator__radio-group">
+                <div>
+                  <input
+                    type="radio"
+                    class="generator__input"
+                    id="radius-val-1"
+                    name="radius-values"
+                    checked
+                  />
+                  <label class="generator__label" for="radius-val-1"
+                    >1 value</label
+                  >
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    class="generator__input"
+                    id="radius-val-2"
+                    name="radius-values"
+                  />
+                  <label class="generator__label" for="radius-val-2"
+                    >2 values</label
+                  >
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    class="generator__input"
+                    id="radius-val-3"
+                    name="radius-values"
+                  />
+                  <label class="generator__label" for="radius-val-3"
+                    >3 values</label
+                  >
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    class="generator__input"
+                    id="radius-val-4"
+                    name="radius-values"
+                  />
+                  <label class="generator__label" for="radius-val-4"
+                    >4 value</label
+                  >
+                </div>
               </div>
               <div>
                 <label for="radius-all" class="generator__label"
                   >radius all corners:
-                  <span class="radius-number">5px</span></label
+                  <span class="generator__value-number" id="radius-number"
+                    >5px</span
+                  ></label
                 >
                 <input
                   type="range"
@@ -117,6 +145,31 @@
                   max="100"
                   value="5"
                   id="radius-all"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="generator__controlls generator__controlls--border-options flex__item"
+        >
+          <h4 class="generator__controlls-title">border options</h4>
+          <div class="generator__controll">
+            <div class="generator__inputs">
+              <div class="generator__input-group">
+                <label for="border-width-input" class="generator__label"
+                  >border width:
+                  <span class="generator__value-number" id="border-width-number"
+                    >2px</span
+                  ></label
+                >
+                <input
+                  type="range"
+                  id="border-width-input"
+                  class="generator__input"
+                  min="0"
+                  max="10"
+                  value="2"
                 />
               </div>
             </div>
