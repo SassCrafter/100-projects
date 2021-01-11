@@ -1,14 +1,17 @@
 $white: #fff;
 $dark: #333;
 $gray: #ccc;
+$dark-gray: rgb(150, 150, 150);
 $light-gray: #eee;
 $blue: #0077b6;
+$pinkish: #990055;
 
 *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -68,6 +71,7 @@ input {
     cursor: pointer;
     -webkit-appearance: none;
     margin-top: -0.9rem;
+    -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
   }
 }
@@ -81,7 +85,7 @@ input {
   &__controlls {
     width: 100%;
     padding: 2rem;
-    padding-top: 4.5rem;
+    padding-top: 5.5rem;
     border: 1px solid $gray;
     margin-bottom: 2rem;
     position: relative;
@@ -105,10 +109,18 @@ input {
       padding: 1rem;
       background-color: $light-gray;
       border: 1px solid $gray;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
       justify-content: space-between;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
       align-items: center;
       cursor: pointer;
+      -webkit-transition: background-color 300ms linear;
+      -o-transition: background-color 300ms linear;
       transition: background-color 300ms linear;
 
       &.open {
@@ -137,11 +149,15 @@ input {
       //padding: 1rem;
       border: 1px solid $gray;
       border-top: none;
+      -webkit-transition: height 300ms ease-in-out, padding 100ms linear 300ms;
+      -o-transition: height 300ms ease-in-out, padding 100ms linear 300ms;
       transition: height 300ms ease-in-out, padding 100ms linear 300ms;
 
       &.open {
         padding: 1rem;
         height: 16rem;
+        -webkit-transition: height 300ms ease-in-out;
+        -o-transition: height 300ms ease-in-out;
         transition: height 300ms ease-in-out;
       }
     }
@@ -155,11 +171,16 @@ input {
     margin-bottom: 1rem;
 
     div {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
     }
   }
   &__radio-group {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
 
     div {
@@ -187,12 +208,78 @@ input {
     height: 14rem;
     background: $white;
     border-radius: 0.5rem;
-    border: 2px solid tomato;
+    border: 2px solid #800000;
   }
 
   &__value-number {
     color: $blue;
     font-size: 1.8rem;
+  }
+
+  &__select {
+    display: inline-block;
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid $gray;
+    border-radius: 0.5rem;
+    font-size: 1.6rem;
+    text-transform: capitalize;
+
+    &-option {
+      font-size: 1em;
+      text-transform: inherit;
+    }
+
+    &:focus {
+      border-color: $blue;
+    }
+  }
+
+  &__copy {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1rem;
+    color: $blue;
+    font-size: 2.2rem;
+  }
+
+  &__code {
+    cursor: pointer;
+
+    &-tip {
+      font-size: 1.4rem;
+      font-weight: 400;
+      background: $dark-gray;
+      color: $white;
+      position: absolute;
+      top: 0;
+      right: 4rem;
+      padding: 0.25rem 0.75rem;
+      transform: translateY(2rem);
+      opacity: 0;
+
+      &.clicked {
+        opacity: 1;
+        transform: translateY(-2rem);
+        transition: transform 400ms ease-in-out, opacity 400ms linear;
+      }
+    }
+  }
+
+  &__code-box {
+    padding: 2.5rem 2rem;
+    background: $light-gray;
+    border: 1px solid $gray;
+    border-radius: 0.5rem;
+    color: $pinkish;
+    letter-spacing: 0.1rem;
+
+    span {
+      color: $dark;
+      font-weight: 500;
+      font-size: 1.1em;
+    }
   }
 
   @media screen and (min-width: 768px) {
@@ -216,9 +303,18 @@ input {
 }
 
 .flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 
   &__item {
@@ -228,8 +324,15 @@ input {
 
 @media screen and (min-width: 768px) {
   .flex {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
     align-items: flex-start;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
 
     &__item {

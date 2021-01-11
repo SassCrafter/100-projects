@@ -83,7 +83,7 @@ input[type="range"]::-webkit-slider-thumb {
 .generator__controlls {
   width: 100%;
   padding: 2rem;
-  padding-top: 4.5rem;
+  padding-top: 5.5rem;
   border: 1px solid #ccc;
   margin-bottom: 2rem;
   position: relative;
@@ -204,12 +204,87 @@ input[type="range"]::-webkit-slider-thumb {
   height: 14rem;
   background: #fff;
   border-radius: 0.5rem;
-  border: 2px solid tomato;
+  border: 2px solid #800000;
 }
 
 .generator__value-number {
   color: #0077b6;
   font-size: 1.8rem;
+}
+
+.generator__select {
+  display: inline-block;
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1.6rem;
+  text-transform: capitalize;
+}
+
+.generator__select-option {
+  font-size: 1em;
+  text-transform: inherit;
+}
+
+.generator__select:focus {
+  border-color: #0077b6;
+}
+
+.generator__copy {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+  color: #0077b6;
+  font-size: 2.2rem;
+}
+
+.generator__code {
+  cursor: pointer;
+}
+
+.generator__code-tip {
+  font-size: 1.4rem;
+  font-weight: 400;
+  background: #969696;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  right: 4rem;
+  padding: 0.25rem 0.75rem;
+  -webkit-transform: translateY(2rem);
+  -ms-transform: translateY(2rem);
+  transform: translateY(2rem);
+  opacity: 0;
+}
+
+.generator__code-tip.clicked {
+  opacity: 1;
+  -webkit-transform: translateY(-2rem);
+  -ms-transform: translateY(-2rem);
+  transform: translateY(-2rem);
+  -webkit-transition: opacity 400ms linear, -webkit-transform 400ms ease-in-out;
+  transition: opacity 400ms linear, -webkit-transform 400ms ease-in-out;
+  -o-transition: transform 400ms ease-in-out, opacity 400ms linear;
+  transition: transform 400ms ease-in-out, opacity 400ms linear;
+  transition: transform 400ms ease-in-out, opacity 400ms linear,
+    -webkit-transform 400ms ease-in-out;
+}
+
+.generator__code-box {
+  padding: 2.5rem 2rem;
+  background: #eee;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  color: #990055;
+  letter-spacing: 0.1rem;
+}
+
+.generator__code-box span {
+  color: #333;
+  font-weight: 500;
+  font-size: 1.1em;
 }
 
 @media screen and (min-width: 768px) {

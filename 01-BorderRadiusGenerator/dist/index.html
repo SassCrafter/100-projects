@@ -7,7 +7,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,300&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;1,300&display=swap"
       rel="stylesheet"
     />
 
@@ -75,7 +75,7 @@
       </div>
       <!-- Generator Controll Preview End -->
 
-      <div class="flex">
+      <div class="generator__main flex">
         <div class="generator__controlls flex__item">
           <h4 class="generator__controlls-title">radius options</h4>
           <div class="generator__controll generator__controll--radius">
@@ -150,28 +150,103 @@
             </div>
           </div>
         </div>
-        <div
-          class="generator__controlls generator__controlls--border-options flex__item"
-        >
-          <h4 class="generator__controlls-title">border options</h4>
-          <div class="generator__controll">
-            <div class="generator__inputs">
-              <div class="generator__input-group">
-                <label for="border-width-input" class="generator__label"
-                  >border width:
-                  <span class="generator__value-number" id="border-width-number"
-                    >2px</span
-                  ></label
-                >
-                <input
-                  type="range"
-                  id="border-width-input"
-                  class="generator__input"
-                  min="0"
-                  max="10"
-                  value="2"
-                />
+        <div class="flex__item">
+          <div
+            class="generator__controlls generator__controlls--border-options"
+          >
+            <h4 class="generator__controlls-title">border options</h4>
+            <div class="generator__controll">
+              <div class="generator__inputs">
+                <div class="generator__input-group">
+                  <label for="border-width-input" class="generator__label"
+                    >border width:
+                    <span
+                      class="generator__value-number"
+                      id="border-width-number"
+                      >2px</span
+                    ></label
+                  >
+                  <input
+                    type="range"
+                    id="border-width-input"
+                    class="generator__input"
+                    data-border-change="borderWidth"
+                    ;
+                    min="0"
+                    max="10"
+                    value="2"
+                  />
+                </div>
+                <div class="generator__input-group">
+                  <label for="border-style-input" class="generator__label"
+                    >border style</label
+                  >
+                  <select
+                    id="border-style-input"
+                    class="generator__input generator__select"
+                    data-border-change="borderStyle"
+                  >
+                    <option value="solid" class="generator__select-option">
+                      solid
+                    </option>
+                    <option value="dashed" class="generator__select-option">
+                      dashed
+                    </option>
+                    <option value="dotted" class="generator__select-option">
+                      dotted
+                    </option>
+                    <option value="double" class="generator__select-option">
+                      double
+                    </option>
+                    <option value="groove" class="generator__select-option">
+                      groove
+                    </option>
+                    <option value="inset" class="generator__select-option">
+                      inset
+                    </option>
+                    <option value="outset" class="generator__select-option">
+                      outset
+                    </option>
+                    <option value="ridge" class="generator__select-option">
+                      ridge
+                    </option>
+                  </select>
+                </div>
+                <!-- Input group end-->
+                <div class="generator__input-group">
+                  <label for="border-color-input" class="generator__label"
+                    >border color</label
+                  >
+                  <div>
+                    <input
+                      type="color"
+                      value="#800000"
+                      id="border-color-input"
+                      data-border-change="borderColor"
+                      class="generator__input"
+                    />
+                    <input
+                      type="text"
+                      class="generator__input"
+                      id="border-color-hex"
+                      value="#800000"
+                    />
+                  </div>
+                </div>
               </div>
+            </div>
+          </div>
+          <div class="generator__controlls generator__code">
+            <h4 class="generator__code-tip">Copied!</h4>
+            <h4 class="generator__controlls-title">radius options</h4>
+            <i class="far fa-copy generator__copy"></i>
+            <div class="generator__code-box" id="code-box">
+              <p class="generator__text">
+                border-radius: <span id="radius-text">5px</span>;
+              </p>
+              <p class="generator__text">
+                border: <span id="border-width-text">2px solid #800000</span>;
+              </p>
             </div>
           </div>
         </div>
