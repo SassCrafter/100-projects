@@ -143,16 +143,16 @@ input[type="range"]::-webkit-slider-thumb {
 .generator__controll-body {
   height: 0;
   overflow: hidden;
-  border: 1px solid #ccc;
-  border-top: none;
-  -webkit-transition: height 300ms ease-in-out, padding 100ms linear 300ms;
-  -o-transition: height 300ms ease-in-out, padding 100ms linear 300ms;
-  transition: height 300ms ease-in-out, padding 100ms linear 300ms;
+  border: none;
+  -webkit-transition: height 300ms ease-in-out, padding 100ms linear;
+  -o-transition: height 300ms ease-in-out, padding 100ms linear;
+  transition: height 300ms ease-in-out, padding 100ms linear;
 }
 
 .generator__controll-body.open {
   padding: 1rem;
-  height: 16rem;
+  height: auto;
+  border: 1px solid #ccc;
   -webkit-transition: height 300ms ease-in-out;
   -o-transition: height 300ms ease-in-out;
   transition: height 300ms ease-in-out;
@@ -181,7 +181,7 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .generator__radio-group div {
-  width: 40%;
+  width: 25%;
   margin-bottom: 1rem;
 }
 
@@ -190,6 +190,7 @@ input[type="range"]::-webkit-slider-thumb {
   display: inline-block;
   text-transform: capitalize;
   margin-bottom: 0.25rem;
+  cursor: pointer;
 }
 
 .generator__preview-container {
@@ -318,6 +319,11 @@ input[type="range"]::-webkit-slider-thumb {
 
 .flex__item {
   width: 100%;
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
 }
 
 @media screen and (min-width: 768px) {

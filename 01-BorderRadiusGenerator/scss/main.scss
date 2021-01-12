@@ -147,15 +147,17 @@ input {
       height: 0;
       overflow: hidden;
       //padding: 1rem;
-      border: 1px solid $gray;
-      border-top: none;
-      -webkit-transition: height 300ms ease-in-out, padding 100ms linear 300ms;
-      -o-transition: height 300ms ease-in-out, padding 100ms linear 300ms;
-      transition: height 300ms ease-in-out, padding 100ms linear 300ms;
+
+      border: none;
+      -webkit-transition: height 300ms ease-in-out, padding 100ms linear;
+      -o-transition: height 300ms ease-in-out, padding 100ms linear;
+      transition: height 300ms ease-in-out, padding 100ms linear;
 
       &.open {
         padding: 1rem;
-        height: 16rem;
+        //height: 16rem;
+        height: auto;
+        border: 1px solid $gray;
         -webkit-transition: height 300ms ease-in-out;
         -o-transition: height 300ms ease-in-out;
         transition: height 300ms ease-in-out;
@@ -184,7 +186,7 @@ input {
     flex-wrap: wrap;
 
     div {
-      width: 40%;
+      width: 25%;
       margin-bottom: 1rem;
     }
   }
@@ -194,6 +196,7 @@ input {
     display: inline-block;
     text-transform: capitalize;
     margin-bottom: 0.25rem;
+    cursor: pointer;
   }
 
   &__preview-container {
@@ -256,13 +259,23 @@ input {
       top: 0;
       right: 4rem;
       padding: 0.25rem 0.75rem;
+      -webkit-transform: translateY(2rem);
+      -ms-transform: translateY(2rem);
       transform: translateY(2rem);
       opacity: 0;
 
       &.clicked {
         opacity: 1;
+        -webkit-transform: translateY(-2rem);
+        -ms-transform: translateY(-2rem);
         transform: translateY(-2rem);
+        -webkit-transition: opacity 400ms linear,
+          -webkit-transform 400ms ease-in-out;
+        transition: opacity 400ms linear, -webkit-transform 400ms ease-in-out;
+        -o-transition: transform 400ms ease-in-out, opacity 400ms linear;
         transition: transform 400ms ease-in-out, opacity 400ms linear;
+        transition: transform 400ms ease-in-out, opacity 400ms linear,
+          -webkit-transform 400ms ease-in-out;
       }
     }
   }
@@ -320,6 +333,11 @@ input {
   &__item {
     width: 100%;
   }
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
 }
 
 @media screen and (min-width: 768px) {

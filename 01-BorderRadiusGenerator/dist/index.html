@@ -89,6 +89,7 @@
                   <input
                     type="radio"
                     class="generator__input"
+                    data-radio="1"
                     id="radius-val-1"
                     name="radius-values"
                     checked
@@ -97,56 +98,182 @@
                     >1 value</label
                   >
                 </div>
+                <!--
                 <div>
                   <input
                     type="radio"
                     class="generator__input"
+                    data-radio="2"
                     id="radius-val-2"
                     name="radius-values"
                   />
                   <label class="generator__label" for="radius-val-2"
                     >2 values</label
                   >
-                </div>
+                </div> -->
                 <div>
                   <input
                     type="radio"
                     class="generator__input"
+                    data-radio="3"
                     id="radius-val-3"
                     name="radius-values"
                   />
                   <label class="generator__label" for="radius-val-3"
-                    >3 values</label
+                    >4 values</label
                   >
                 </div>
-                <div>
+              </div>
+              <div
+                class="generator__values generator__values--1"
+                data-radio-border="1"
+              >
+                <div class="generator__input-group">
+                  <label for="radius-all" class="generator__label"
+                    >radius all corners:
+                    <span class="generator__value-number" id="radius-number"
+                      >5px</span
+                    ></label
+                  >
                   <input
-                    type="radio"
-                    class="generator__input"
-                    id="radius-val-4"
-                    name="radius-values"
+                    type="range"
+                    class="generator__input generator__input--radius"
+                    min="0"
+                    max="100"
+                    value="5"
+                    id="radius-all"
+                    data-radius="all"
                   />
-                  <label class="generator__label" for="radius-val-4"
-                    >4 value</label
-                  >
                 </div>
               </div>
-              <div>
-                <label for="radius-all" class="generator__label"
-                  >radius all corners:
-                  <span class="generator__value-number" id="radius-number"
-                    >5px</span
-                  ></label
-                >
-                <input
-                  type="range"
-                  class="generator__input"
-                  min="0"
-                  max="100"
-                  value="5"
-                  id="radius-all"
-                />
+              <!-- <div
+                class="generator__values generator__values--2 hidden"
+                data-radio-border="2"
+              >
+                <div class="generator__input-group">
+                  <label for="topLeft-botRight-input" class="generator__label"
+                    >top left & bottom right:
+                    <span
+                      class="generator__value-number"
+                      id="radius-number--topLBottomR"
+                      >5px</span
+                    ></label
+                  >
+                  <input
+                    type="range"
+                    class="generator__input"
+                    id="topLeft-botRight-input"
+                    min="0"
+                    max="100"
+                    value="5"
+                  />
+                </div>
+                <div class="generator__input-group">
+                  <label for="topRight-botLeft-input" class="generator__label"
+                    >top right & bottom left:
+                    <span
+                      class="generator__value-number"
+                      id="radius-number--topRBottom"
+                      >5px</span
+                    ></label
+                  >
+                  <input
+                    type="range"
+                    class="generator__input"
+                    id="topRight-botLeft-input"
+                    min="0"
+                    max="100"
+                    value="5"
+                  />
+                </div>
+              </div> -->
+              <!-- Generator Values End -->
+              <div
+                class="generator__values generator__values--3 hidden"
+                data-radio-border="3"
+              >
+                <div class="generator__input-group">
+                  <label for="topLeft-input" class="generator__label"
+                    >top left:
+                    <span
+                      class="generator__value-number"
+                      id="radius-number--top-left"
+                      >5px</span
+                    ></label
+                  >
+                  <input
+                    type="range"
+                    class="generator__input generator__input--radius"
+                    id="topLeft-input"
+                    min="0"
+                    max="100"
+                    value="5"
+                    data-radius="one-corner"
+                    data-corner="borderTopLeftRadius"
+                  />
+                </div>
+                <div class="generator__input-group">
+                  <label for="topRight-input" class="generator__label"
+                    >top right:
+                    <span
+                      class="generator__value-number"
+                      id="radius-number--topRight"
+                      >5px</span
+                    ></label
+                  >
+                  <input
+                    type="range"
+                    class="generator__input generator__input--radius"
+                    id="topRight-input"
+                    min="0"
+                    max="100"
+                    value="5"
+                    data-radius="one-corner"
+                    data-corner="borderTopRightRadius"
+                  />
+                </div>
+                <div class="generator__input-group">
+                  <label for="bottomLeft-input" class="generator__label"
+                    >bottom left:
+                    <span
+                      class="generator__value-number"
+                      id="radius-number--bottomLeft"
+                      >5px</span
+                    ></label
+                  >
+                  <input
+                    type="range"
+                    class="generator__input generator__input--radius"
+                    id="bottomLeft-input"
+                    min="0"
+                    max="100"
+                    value="5"
+                    data-radius="one-corner"
+                    data-corner="borderBottomLeftRadius"
+                  />
+                </div>
+                <div class="generator__input-group">
+                  <label for="bottomRight-input" class="generator__label"
+                    >bottom right:
+                    <span
+                      class="generator__value-number"
+                      id="radius-number--bottomRight"
+                      >5px</span
+                    ></label
+                  >
+                  <input
+                    type="range"
+                    class="generator__input generator__input--radius"
+                    id="bottomRight-input"
+                    min="0"
+                    max="100"
+                    value="5"
+                    data-radius="one-corner"
+                    data-corner="borderBottomRightRadius"
+                  />
+                </div>
               </div>
+              <!-- Generator Values End -->
             </div>
           </div>
         </div>

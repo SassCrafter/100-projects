@@ -1,3 +1,9 @@
+const RADIUS_INITIAL_VALUE = 5;
+//const borderTopRightRadius = 5;
+//const borderBottomLeftRadius = 5;
+//const borderTopLeftRadius = 5;
+//const borderBottomRightRadius = 5;
+
 const controllTriggers = document.querySelectorAll(".controll-trigger");
 const previewBoxBgInput = document.getElementById("preview-bg");
 const previewBoxBgHexInput = document.getElementById("preview-bg-hex");
@@ -9,6 +15,19 @@ const borderStyleInput = document.getElementById("border-style-input");
 const borderColorInput = document.getElementById("border-color-input");
 const borderColorHexInput = document.getElementById("border-color-hex");
 const borderInputs = document.querySelectorAll("[data-border-change]");
+const borderValuesRadioInputs = document.querySelectorAll(
+  'input[type="radio"]'
+);
+const borderRadiusInputs = document.querySelectorAll(
+  ".generator__input--radius"
+);
+
+const topLeftInput = document.getElementById("topLeft-input");
+const topRightInput = document.getElementById("topRight-input");
+const bottomLeftInput = document.getElementById("bottomLeft-input");
+const bottomRightInput = document.getElementById("bottomRight-input");
+
+const valuesContainer = document.querySelectorAll(".generator__values");
 
 const previewBoxEl = document.querySelector(".generator__preview-box");
 const previewContainerEl = document.querySelector(
@@ -32,7 +51,7 @@ const syncColorAndTextInputs = (input, value) => {
 };
 
 const updateNumDisplay = (element, value) => {
-  element.innerText = `${value}px`;
+  element.innerText = value;
 };
 
 const updateBorderStyles = (e) => {
@@ -40,7 +59,7 @@ const updateBorderStyles = (e) => {
   const method = input.dataset.borderChange;
   borderPrefix = input.id === "border-width-input" ? "px" : "";
   previewBoxEl.style[method] = input.value + borderPrefix;
-  updateCopyText(e);
+  updateBorderStyleCopyText(e);
   if (method === "borderWidth") {
     updateNumDisplay(borderWidthNumberEl, input.value);
   } else if (method === "borderColor") {
@@ -48,7 +67,7 @@ const updateBorderStyles = (e) => {
   }
 };
 
-const updateInnerText = (
+const updateBorderStyleCodeText = (
   element,
   width,
   style = "solid",
@@ -59,17 +78,46 @@ const updateInnerText = (
 };
 
 const updateBorderRadius = (e) => {
-  const radius = e.target.value;
-  previewBoxEl.style.borderRadius = `${radius}px`;
-  updateNumDisplay(borderRadiusNumberEl, radius);
-  updateNumDisplay(copyBorderRadiusTextEl, radius);
+  let borderRadiusText;
+  const input = e.target;
+  const radius = input.value;
+  const radiusType = input.dataset.radius;
+  const numberEl = input.previousElementSibling.children[0];
+  if (radiusType === "all") {
+    previewBoxEl.style.borderRadius = `${radius}px`;
+    borderRadiusText = `${radius}px`;
+  } else if (radiusType === "one-corner") {
+    previewBoxEl.style[input.dataset.corner] = `${radius}px`;
+    borderRadiusText = `${topLeftInput.value}px ${topRightInput.value}px ${bottomLeftInput.value}px ${bottomRightInput.value}px`;
+  }
+  updateNumDisplay(numberEl, radius);
+  updateNumDisplay(copyBorderRadiusTextEl, borderRadiusText);
 };
 
-const updateCopyText = (e) => {
+const updateBorderStyleCopyText = (e) => {
   const borderWidth = borderWidthInput.value;
   const borderStyle = borderStyleInput.value;
   const borderColor = borderColorInput.value;
-  updateInnerText(copyBorderStyleTextEl, borderWidth, borderStyle, borderColor);
+  updateBorderStyleCodeText(
+    copyBorderStyleTextEl,
+    borderWidth,
+    borderStyle,
+    borderColor
+  );
+};
+
+const showBorderInputs = (e) => {
+  const input = e.target;
+  const inputsContainer = document.querySelector(
+    `[data-radio-border='${input.dataset.radio}'`
+  );
+  valuesContainer.forEach((container) => {
+    if (!container.classList.contains("hidden")) {
+      container.classList.add("hidden");
+    }
+  });
+
+  inputsContainer.classList.remove("hidden");
 };
 
 const copyToClipBoard = (selector) => {
@@ -79,6 +127,23 @@ const copyToClipBoard = (selector) => {
   window.getSelection().addRange(r);
   document.execCommand("copy");
   window.getSelection().removeAllRanges();
+};
+
+const reset = (e) => {
+  console.log("reset");
+  borderRadiusInputs.forEach((input) => {
+    input.value = RADIUS_INITIAL_VALUE;
+    const numEl = input.previousElementSibling.children[0];
+    updateNumDisplay(numEl, input.value);
+    updateBorderStyleCopyText();
+  });
+  previewBoxEl.style.borderRadius = RADIUS_INITIAL_VALUE + "px";
+  const inputDataAttr = e.target.dataset.radio;
+  const text =
+    inputDataAttr === "1"
+      ? RADIUS_INITIAL_VALUE + "px"
+      : `${RADIUS_INITIAL_VALUE}px ${RADIUS_INITIAL_VALUE}px ${RADIUS_INITIAL_VALUE}px ${RADIUS_INITIAL_VALUE}px`;
+  updateNumDisplay(copyBorderRadiusTextEl, text);
 };
 
 const openCloseControll = (e) => {
@@ -127,8 +192,17 @@ borderInputs.forEach((input) => {
   input.addEventListener("change", updateBorderStyles);
 });
 
-radiusAllInput.addEventListener("mousemove", updateBorderRadius);
-radiusAllInput.addEventListener("change", updateBorderRadius);
+borderValuesRadioInputs.forEach((input) => {
+  input.addEventListener("click", (e) => {
+    showBorderInputs(e);
+    reset(e);
+  });
+});
+
+borderRadiusInputs.forEach((input) => {
+  input.addEventListener("mousemove", updateBorderRadius);
+  input.addEventListener("change", updateBorderRadius);
+});
 
 copyCodeEl.addEventListener("click", () => {
   const tip = copyCodeEl.querySelector(".generator__code-tip");
