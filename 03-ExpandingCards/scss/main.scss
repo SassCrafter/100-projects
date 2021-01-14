@@ -1,0 +1,119 @@
+$white: #fff;
+$dark: #333;
+$gray: #eee;
+$font-stack: "Roboto", Arial, Helvetica, sans-serif;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: $font-stack;
+  background: $white;
+  color: $dark;
+}
+
+.cards {
+  width: 95%;
+  min-height: 100vh;
+  max-width: 140rem;
+  margin: 2rem auto 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__container {
+    width: 100%;
+    display: flex;
+  }
+}
+
+.card {
+  flex: 1;
+  height: 80vh;
+  background: $gray;
+  margin: 0 0.5rem;
+  border-radius: 5rem;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  overflow: hidden;
+  cursor: pointer;
+  transition: flex 700ms cubic-bezier(0.94, 0.97, 0.62, 0.9);
+
+  &--1 {
+    background-image: url("../img/1.jpg");
+  }
+  &--2 {
+    background-image: url("../img/2.jpg");
+  }
+  &--3 {
+    background-image: url("../img/3.jpg");
+  }
+  &--4 {
+    background-image: url("../img/4.jpg");
+  }
+  &--5 {
+    background-image: url("../img/5.jpg");
+  }
+
+  &--expand {
+    flex: 8;
+
+    .card__title {
+      opacity: 1;
+      transition: opacity 300ms linear 500ms;
+    }
+  }
+
+  &:nth-child(4),
+  &:last-child {
+    display: none;
+  }
+
+  &__title {
+    font-size: 2.2rem;
+    letter-spacing: 0.1rem;
+    text-transform: capitalize;
+    color: white;
+    position: absolute;
+    bottom: 3rem;
+    left: 1.5rem;
+    opacity: 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .card {
+    &:nth-child(4) {
+      display: block;
+    }
+
+    &__title {
+      font-size: 2.8rem;
+      left: 3rem;
+    }
+  }
+}
+@media screen and (min-width: 900px) {
+  .card {
+    &:nth-child(5) {
+      display: block;
+    }
+
+    &__title {
+      font-size: 3.4rem;
+      left: 3rem;
+    }
+  }
+}

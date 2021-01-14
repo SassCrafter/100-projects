@@ -1,0 +1,134 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  background: #fff;
+  color: #333;
+}
+
+.cards {
+  width: 95%;
+  min-height: 100vh;
+  max-width: 140rem;
+  margin: 2rem auto 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.cards__container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.card {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  height: 80vh;
+  background: #eee;
+  margin: 0 0.5rem;
+  border-radius: 5rem;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-transition: -webkit-box-flex 700ms cubic-bezier(0.94, 0.97, 0.62, 0.9);
+  transition: -webkit-box-flex 700ms cubic-bezier(0.94, 0.97, 0.62, 0.9);
+  -o-transition: flex 700ms cubic-bezier(0.94, 0.97, 0.62, 0.9);
+  transition: flex 700ms cubic-bezier(0.94, 0.97, 0.62, 0.9);
+  transition: flex 700ms cubic-bezier(0.94, 0.97, 0.62, 0.9),
+    -webkit-box-flex 700ms cubic-bezier(0.94, 0.97, 0.62, 0.9),
+    -ms-flex 700ms cubic-bezier(0.94, 0.97, 0.62, 0.9);
+}
+
+.card--1 {
+  background-image: url("../img/1.jpg");
+}
+
+.card--2 {
+  background-image: url("../img/2.jpg");
+}
+
+.card--3 {
+  background-image: url("../img/3.jpg");
+}
+
+.card--4 {
+  background-image: url("../img/4.jpg");
+}
+
+.card--5 {
+  background-image: url("../img/5.jpg");
+}
+
+.card--expand {
+  -webkit-box-flex: 8;
+  -ms-flex: 8;
+  flex: 8;
+}
+
+.card--expand .card__title {
+  opacity: 1;
+  -webkit-transition: opacity 300ms linear 500ms;
+  -o-transition: opacity 300ms linear 500ms;
+  transition: opacity 300ms linear 500ms;
+}
+
+.card:nth-child(4),
+.card:last-child {
+  display: none;
+}
+
+.card__title {
+  font-size: 2.2rem;
+  letter-spacing: 0.1rem;
+  text-transform: capitalize;
+  color: white;
+  position: absolute;
+  bottom: 3rem;
+  left: 1.5rem;
+  opacity: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .card:nth-child(4) {
+    display: block;
+  }
+  .card__title {
+    font-size: 2.8rem;
+    left: 3rem;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .card:nth-child(5) {
+    display: block;
+  }
+  .card__title {
+    font-size: 3.4rem;
+    left: 3rem;
+  }
+}
