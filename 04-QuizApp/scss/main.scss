@@ -1,0 +1,146 @@
+$main-font-stack: "Poppins", Arial, Helvetica, sans-serif;
+$secondary-font-stack: "Lobster", cursive;
+
+$main-color: #d56f85;
+$dark-red: #be3459;
+$light-red: #eda9a9;
+$pinkish: #eda9a952;
+$white: #fff;
+$dark: #737373;
+$light-gray: #fbfbfb;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: $main-font-stack;
+  background: $light-gray;
+  color: $dark;
+}
+
+img {
+  max-width: 100%;
+}
+
+input[type="radio"] {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+figcaption {
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.game {
+  width: 95%;
+  max-width: 120rem;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 2rem 2rem 0 2rem;
+  overflow: hidden;
+  position: relative;
+
+  &__header {
+    width: 100%;
+    padding: 3rem 0;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-family: $secondary-font-stack;
+    font-size: 3.5rem;
+
+    span {
+      display: inline-block;
+      transform: rotate(15deg);
+      line-height: 1rem;
+    }
+  }
+
+  &__desc {
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+
+  &__menu {
+    &__option {
+      margin-bottom: 2rem;
+
+      &__img {
+        margin: 1rem;
+        width: 35vw;
+        padding-top: 35vw;
+        position: relative;
+        border-radius: 50%;
+        background: $pinkish;
+
+        &::before {
+          content: "";
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          border: 1rem solid $white;
+          box-shadow: 0 0 0 0.1rem lighten($light-red, 10%);
+          border-radius: 50%;
+        }
+
+        img {
+          width: 60%;
+          height: auto;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+  }
+}
+
+.big-text {
+  font-size: 2em;
+}
+.main-color-text {
+  color: $main-color;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-size: 1.6rem;
+  text-transform: capitalize;
+  color: $white;
+  padding: 1rem 4rem;
+  margin-bottom: 2rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(90deg, $dark-red, $light-red);
+}
