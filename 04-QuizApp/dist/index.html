@@ -12,50 +12,46 @@
     />
 
     <link rel="stylesheet" href="./css/main.css" />
-    <script src="./js/app.js" defer></script>
+    <script src="./js/menu.js" defer></script>
     <title>Quiz Master</title>
   </head>
   <body>
-    <section class="game">
-      <div class="game__container">
-        <header class="game__header">
-          <h1 class="game__title">
+    <section class="app">
+      <div class="app__container">
+        <header class="app__header">
+          <h1 class="app__title">
             quiz<br />master <span class="big-text main-color-text">?</span>
           </h1>
         </header>
-        <div class="game__main">
-          <p class="game__desc">
+        <div class="app__main">
+          <p class="app__desc">
             Click create quiz to create new quiz or play to play
           </p>
-          <div class="game__menu flex">
-            <label for="option-new-quiz" class="game__menu__option">
-              <input
-                type="radio"
-                name="main-menu"
-                id="option-new-quiz"
-                aria-label="new quiz"
-              />
-              <figure class="game__menu__option__img">
+          <div class="app__menu flex">
+            <div
+              for="option-new-quiz"
+              class="app__menu__option"
+              data-href="./newQuiz.html"
+            >
+              <figure class="app__menu__option__img">
                 <img src="./img/menu/new-quiz-icon.svg" alt="new quiz" />
               </figure>
               <figcaption>Create Quiz</figcaption>
-            </label>
+            </div>
             <!-- Menu Option End -->
-            <label for="option-play" class="game__menu__option">
-              <input
-                type="radio"
-                name="main-menu"
-                id="option-play"
-                aria-label="play"
-              />
-              <figure class="game__menu__option__img">
+            <div
+              for="option-play"
+              class="app__menu__option"
+              data-href="./playQuiz.html"
+            >
+              <figure class="app__menu__option__img">
                 <img src="./img/menu/play-icon.svg" alt="play" />
               </figure>
               <figcaption>Play</figcaption>
-            </label>
+            </div>
             <!-- Menu Option End -->
-            <button class="btn btn-start" id="start-btn">start</button>
           </div>
+          <a href="#" class="btn btn--start" id="start-btn">start</a>
         </div>
       </div>
     </section>

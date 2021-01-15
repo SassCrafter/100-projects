@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./css/main.css" />
+    <script src="./js/app.js" defer></script>
+    <title>New Quiz</title>
+  </head>
+  <body>
+    <div id="backdrop"></div>
+
+    <div class="modal" id="new-quiz-settings">
+      <h3 class="heading">General Settings</h3>
+      <form class="form form--modal" id="quiz-settings-form">
+        <div class="form__group">
+          <label for="questions-quantity-input">number of questions</label>
+          <input
+            type="number"
+            class="form__group__input"
+            id="questions-quantity-input"
+            placeholder="Enter number of questions"
+          />
+        </div>
+        <button class="btn" id="confirm-settings">Apply</button>
+      </form>
+    </div>
+
+    <section class="app">
+      <header class="app__header app__header--flex">
+        <h1 class="app__title app__logo">
+          quiz<br />master <span class="big-text main-color-text">?</span>
+        </h1>
+        <h3 class="app__header__nav">
+          quiz master | <a href="./index.html" class="main-color-text">home</a>
+        </h3>
+      </header>
+
+      <div class="app__main">
+        <h3 class="heading" id="current-question-counter">0/0</h3>
+        <form class="form app__form">
+          <div class="form__group app__form__group">
+            <label for="new-question-input" class="app__label"
+              >Enter question</label
+            >
+            <input
+              type="text"
+              id="new-question-input"
+              class="form__group__input app__form__group__input"
+              placeholder="Your question"
+            />
+          </div>
+          <!-- Input group end -->
+          <div class="form__group app__form__group">
+            <label for="correct-answer-input" class="app__label"
+              >Correct answer</label
+            >
+            <input
+              type="text"
+              id="correct-answer-input"
+              class="form__group__input app__form__group__input app__form__group__input--correct"
+              placeholder="Correct"
+            />
+          </div>
+          <!-- Input group end -->
+          <div class="form__group app__form__group">
+            <label for="wrong-answer-input-1" class="app__label"
+              >Wrong answer</label
+            >
+            <input
+              type="text"
+              id="wrong-answer-input-1"
+              class="form__group__input app__form__group__input app__form__group__input--wrong"
+              placeholder="Wrong"
+            />
+          </div>
+          <!-- Input group end -->
+          <div class="form__group app__form__group">
+            <label for="wrong-answer-input-2" class="app__label"
+              >Wrong answer</label
+            >
+            <input
+              type="text"
+              id="wrong-answer-input-2"
+              class="form__group__input app__form__group__input app__form__group__input--wrong"
+              placeholder="Wrong"
+            />
+          </div>
+          <!-- Input group end -->
+          <div class="form__group app__form__group">
+            <label for="wrong-answer-input-3" class="app__label"
+              >Wrong answer</label
+            >
+            <input
+              type="text"
+              id="wrong-answer-input-3"
+              class="form__group__input app__form__group__input app__form__group__input--wrong"
+              placeholder="Wrong"
+            />
+          </div>
+          <!-- Input group end -->
+          <button type="submit" class="btn btn--submit">Submit</button>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>

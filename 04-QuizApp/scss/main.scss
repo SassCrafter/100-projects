@@ -8,6 +8,13 @@ $pinkish: #eda9a952;
 $white: #fff;
 $dark: #737373;
 $light-gray: #fbfbfb;
+$overlay-color: rgba(0, 0, 0, 0.65);
+
+$correct-color: #4aa05e;
+$wrong-color: #d64550;
+$error-color: #8f2522;
+
+$t-time: 300ms;
 
 *,
 *::before,
@@ -28,14 +35,12 @@ body {
   color: $dark;
 }
 
-img {
-  max-width: 100%;
+a {
+  text-decoration: none;
 }
 
-input[type="radio"] {
-  width: 0;
-  height: 0;
-  display: none;
+img {
+  max-width: 100%;
 }
 
 figcaption {
@@ -43,78 +48,71 @@ figcaption {
   text-transform: capitalize;
 }
 
-.game {
-  width: 95%;
-  max-width: 120rem;
-  min-height: 100vh;
-  margin: 0 auto;
-  padding: 2rem 2rem 0 2rem;
-  overflow: hidden;
-  position: relative;
+// Common Styles
 
-  &__header {
-    width: 100%;
-    padding: 3rem 0;
-    text-align: center;
-    margin-bottom: 1rem;
+#backdrop {
+  width: 100%;
+  height: 100vh;
+  background: $overlay-color;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.modal {
+  width: 90%;
+  max-width: 60rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  background: $white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 500;
+}
+
+.form {
+  width: 100%;
+  max-width: 60rem;
+
+  &--modal {
+    max-width: 40rem;
   }
 
-  &__title {
-    text-transform: uppercase;
-    font-weight: 400;
-    font-family: $secondary-font-stack;
-    font-size: 3.5rem;
+  label {
+    display: block;
+    text-transform: capitalize;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
 
-    span {
-      display: inline-block;
-      transform: rotate(15deg);
-      line-height: 1rem;
+    &.label--error {
+      color: $wrong-color;
     }
   }
 
-  &__desc {
-    text-align: center;
-    font-size: 1.6rem;
-    font-weight: bold;
-    margin-bottom: 2rem;
-  }
+  &__group {
+    margin-bottom: 1.5rem;
 
-  &__menu {
-    &__option {
-      margin-bottom: 2rem;
+    &__input {
+      display: inline-block;
+      outline: none;
+      border: 1px solid $dark;
+      padding: 1rem 0.5rem;
+      width: 100%;
 
-      &__img {
-        margin: 1rem;
-        width: 35vw;
-        padding-top: 35vw;
-        position: relative;
-        border-radius: 50%;
-        background: $pinkish;
-
-        &::before {
-          content: "";
-          width: 100%;
-          height: 100%;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          border: 1rem solid $white;
-          box-shadow: 0 0 0 0.1rem lighten($light-red, 10%);
-          border-radius: 50%;
-        }
-
-        img {
-          width: 60%;
-          height: auto;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-        }
+      &--error {
+        border-color: $wrong-color;
       }
     }
   }
+}
+
+.heading {
+  font-size: 2rem;
+  text-transform: capitalize;
+  margin-bottom: 2rem;
 }
 
 .big-text {
@@ -140,7 +138,189 @@ figcaption {
   text-transform: capitalize;
   color: $white;
   padding: 1rem 4rem;
-  margin-bottom: 2rem;
   border-radius: 0.5rem;
   background: linear-gradient(90deg, $dark-red, $light-red);
+  transition: transform $t-time ease-in, box-shadow $t-time linear;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.3);
+  }
+
+  &--start {
+    display: block;
+    text-align: center;
+    width: 19.5rem;
+    margin: 0 auto 2rem auto;
+  }
+}
+
+.app {
+  width: 95%;
+  max-width: 120rem;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 2rem 2rem 0 2rem;
+  overflow: hidden;
+  position: relative;
+
+  &__header {
+    width: 100%;
+    padding: 3rem 0;
+    text-align: center;
+    margin-bottom: 1rem;
+
+    &__nav {
+      font-size: 1.4rem;
+      text-transform: uppercase;
+    }
+
+    &--flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-family: $secondary-font-stack;
+    font-size: 3.5rem;
+
+    span {
+      display: inline-block;
+      transform: rotate(15deg);
+      line-height: 1rem;
+    }
+  }
+
+  &__logo {
+    font-size: 1.8rem !important;
+  }
+
+  &__desc {
+    max-width: 30rem;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin: 0 auto 2rem auto;
+  }
+
+  &__main {
+    //max-width: 80rem;
+    margin: 0 auto;
+  }
+
+  &__menu {
+    flex-wrap: wrap;
+
+    &__option {
+      margin-bottom: 2rem;
+      filter: grayscale(1);
+      transition: filter $t-time linear, transform $t-time ease-in-out;
+      cursor: pointer;
+
+      &:hover {
+        filter: grayscale(0);
+      }
+
+      &--picked {
+        filter: grayscale(0);
+        transform: scale(1.1);
+      }
+
+      &__img {
+        margin: 1rem;
+        width: 15rem;
+        height: 15rem;
+        position: relative;
+        border-radius: 50%;
+        background: $pinkish;
+        box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.15);
+
+        &::before {
+          content: "";
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          border: 1rem solid $white;
+          box-shadow: 0 0 0 0.1rem lighten($light-red, 10%);
+          border-radius: 50%;
+        }
+
+        img {
+          width: 60%;
+          height: auto;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+  }
+
+  &__form__group__input--correct {
+    border-color: $correct-color;
+  }
+  &__form__group__input--wrong {
+    border-color: $wrong-color;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  figcaption {
+    font-size: 2.2rem;
+  }
+  .app {
+    &__title {
+      font-size: 4rem;
+    }
+    &__desc {
+      font-size: 2.2rem;
+    }
+    &__header {
+      padding: 2rem 0;
+      margin-bottom: 10vh;
+    }
+
+    &__menu {
+      &__option {
+        margin: 0 2rem 5rem;
+
+        &__img {
+          width: 18rem;
+          height: 18rem;
+        }
+      }
+    }
+  }
+
+  .flex {
+    flex-direction: row;
+  }
+
+  .btn {
+    font-size: 1.8rem;
+    padding: 1rem 7rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .app {
+    &__desc {
+      font-size: 2.2rem;
+    }
+    &__header {
+      margin-bottom: 5vh;
+    }
+    &__menu {
+      &__option {
+        margin: 0 2rem 5rem;
+      }
+    }
+  }
 }
