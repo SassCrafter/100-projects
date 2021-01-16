@@ -31,8 +31,9 @@ const quizSettingsSubmitHandler = (e) => {
   e.preventDefault();
   const inputs = quizSettingsForm.querySelectorAll(".form__group__input");
   const areInputsValid = checkInputs(inputs);
+  const label = inputs[0].previousElementSibling;
   if (+inputs[0].value <= 0) {
-    showIncorrectInput(inputs[0], "Should be greater than 0");
+    showIncorrectInput(label, "Should be greater than 0");
     return;
   }
   if (areInputsValid) {

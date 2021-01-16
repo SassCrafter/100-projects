@@ -36,6 +36,10 @@ const clearInputs = (inputs) => {
   });
 };
 
+const updateELContent = (el, text) => {
+  el.textContent = text;
+};
+
 const saveToLocalStorage = (name, object) => {
   localStorage.removeItem(name);
   localStorage.setItem(name, JSON.stringify(object));
@@ -47,6 +51,12 @@ const loadFromLocalStorage = (name) => {
   }
 };
 
+const getRand = (min, max) => Math.floor(Math.random() * (max - min) + min);
+
+const shuffleArray = (array) => {
+  array.sort(() => Math.random() - 0.5);
+};
+
 export {
   hideElements,
   showElements,
@@ -55,4 +65,6 @@ export {
   showIncorrectInput,
   saveToLocalStorage,
   loadFromLocalStorage,
+  getRand,
+  shuffleArray,
 };

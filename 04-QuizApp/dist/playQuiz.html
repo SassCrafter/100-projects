@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./css/main.css" />
+    <script type="module" src="./js/play_quiz.js"></script>
+    <title>Quiz Master | Play</title>
+  </head>
+  <body>
+    <div id="backdrop"></div>
+
+    <div class="modal" id="quiz-settings">
+      <h3 class="heading">Quiz Settings</h3>
+      <form class="form form--modal" id="quiz-settings-form">
+        <div class="form__group">
+          <label for="questions-quantity-input">category</label>
+          <select
+            id="category"
+            class="form__group__input form__group__input--select"
+          >
+            <option value="All">All</option>
+            <option value="Geography">Geography</option>
+            <option value="Sports">Sports</option>
+            <option value="Computers">Computers</option>
+            <option value="History">History</option>
+            <option value="games">Video games</option>
+          </select>
+        </div>
+        <div class="form__group">
+          <label for="questions-quantity-input"
+            >number of questions (1 - 50)</label
+          >
+          <input
+            type="number"
+            class="form__group__input"
+            id="questions-quantity-input"
+            placeholder="Enter number of questions"
+          />
+        </div>
+        <button class="btn" id="confirm-settings">Apply</button>
+      </form>
+    </div>
+
+    <section class="app">
+      <div class="app__container">
+        <header class="app__header app__header--flex">
+          <h1 class="app__title app__logo">
+            quiz<br />master <span class="big-text main-color-text">?</span>
+          </h1>
+          <h3 class="app__header__nav">
+            quiz master |
+            <a href="./index.html" class="main-color-text">home</a>
+          </h3>
+        </header>
+
+        <div class="app__main app__main--small text-center">
+          <h3 class="heading main-color-text">
+            category: <span id="category-text">category text</span>
+          </h3>
+          <h4 id="current-question-counter">0/0</h4>
+          <p class="app__question" id="question">Question</p>
+          <form class="form form__center app__form" id="quiz-form">
+            <div class="form__group">
+              <input
+                type="radio"
+                name="answer"
+                class="app__answer-input"
+                id="a"
+              />
+              <label for="a" class="app__answer">
+                <span class="app__check-box"></span>
+                <span class="app__answer__text" id="a-answer">answer 1</span>
+              </label>
+            </div>
+            <!-- Form Group end -->
+            <div class="form__group">
+              <input
+                type="radio"
+                name="answer"
+                class="app__answer-input"
+                id="b"
+              />
+              <label for="b" class="app__answer">
+                <span class="app__check-box"></span>
+                <span class="app__answer__text" id="b-answer">answer 2</span>
+              </label>
+            </div>
+            <!-- Form Group end -->
+            <div class="form__group">
+              <input
+                type="radio"
+                name="answer"
+                class="app__answer-input"
+                id="c"
+              />
+              <label for="c" class="app__answer">
+                <span class="app__check-box"></span>
+                <span class="app__answer__text" id="c-answer">answer 3</span>
+              </label>
+            </div>
+            <!-- Form Group end -->
+            <div class="form__group">
+              <input
+                type="radio"
+                name="answer"
+                class="app__answer-input"
+                id="d"
+              />
+              <label for="d" class="app__answer">
+                <span class="app__check-box"></span>
+                <span class="app__answer__text" id="d-answer">answer 4</span>
+              </label>
+            </div>
+            <!-- Form Group end -->
+            <button class="btn" type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
