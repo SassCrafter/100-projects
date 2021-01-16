@@ -12,7 +12,7 @@
     />
 
     <link rel="stylesheet" href="./css/main.css" />
-    <script src="./js/app.js" defer></script>
+    <script type="module" src="./js/new_quiz.js"></script>
     <title>New Quiz</title>
   </head>
   <body>
@@ -34,6 +34,16 @@
       </form>
     </div>
 
+    <div class="modal" id="complete-quiz" hidden>
+      <h3 class="heading lower">
+        Congratulations, you've successfully created your quiz :)
+      </h3>
+      <button href="./playQuiz.html" class="btn" id="load-quiz">
+        Load Your quiz
+      </button>
+      <a href="./index.html" class="btn m-l-2">main menu</a>
+    </div>
+
     <section class="app">
       <header class="app__header app__header--flex">
         <h1 class="app__title app__logo">
@@ -46,7 +56,7 @@
 
       <div class="app__main">
         <h3 class="heading" id="current-question-counter">0/0</h3>
-        <form class="form app__form">
+        <form class="form app__form" id="new-question-form">
           <div class="form__group app__form__group">
             <label for="new-question-input" class="app__label"
               >Enter question</label

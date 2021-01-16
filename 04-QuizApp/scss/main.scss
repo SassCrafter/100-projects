@@ -52,7 +52,7 @@ figcaption {
 
 #backdrop {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background: $overlay-color;
   position: absolute;
   top: 0;
@@ -71,6 +71,10 @@ figcaption {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 500;
+}
+
+.m-l-2 {
+  margin-left: 2rem;
 }
 
 .form {
@@ -115,11 +119,18 @@ figcaption {
   margin-bottom: 2rem;
 }
 
+.lower {
+  text-transform: initial;
+}
+
 .big-text {
   font-size: 2em;
 }
 .main-color-text {
   color: $main-color;
+}
+.error-text {
+  color: $wrong-color;
 }
 
 .flex {
@@ -160,7 +171,7 @@ figcaption {
   max-width: 120rem;
   min-height: 100vh;
   margin: 0 auto;
-  padding: 2rem 2rem 0 2rem;
+  padding: 1rem 2rem;
   overflow: hidden;
   position: relative;
 
@@ -176,6 +187,7 @@ figcaption {
     }
 
     &--flex {
+      padding: 1rem 0;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -209,6 +221,7 @@ figcaption {
 
   &__main {
     //max-width: 80rem;
+    padding-bottom: 3rem;
     margin: 0 auto;
   }
 
