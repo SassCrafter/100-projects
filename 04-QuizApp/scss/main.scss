@@ -141,6 +141,10 @@ input[type="radio"] {
   z-index: 200;
 }
 
+.win-message {
+  margin-bottom: 2rem;
+}
+
 .m-l-2 {
   margin-left: 2rem;
 }
@@ -231,6 +235,7 @@ input[type="radio"] {
   border: none;
   outline: none;
   font-size: 1.6rem;
+  line-height: 1;
   text-transform: capitalize;
   color: $white;
   padding: 1rem 4rem;

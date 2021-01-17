@@ -15,6 +15,8 @@ const quizForm = document.getElementById("quiz-form");
 const answerElements = document.querySelectorAll(".app__answer");
 const answerInputs = document.querySelectorAll(".app__answer-input");
 const loaderEl = document.getElementById("question-loading");
+const newGameBtn = document.getElementById("new-game-btn");
+const winModal = document.getElementById("win-modal");
 
 const categories = {
   geography: "22",
@@ -31,11 +33,7 @@ let correctEl;
 let correctAnswersCounter = 0;
 let isQuizEnd = false;
 
-const questionsArray = [];
-
-const answerCLickHandler = (e) => {
-  console.log(e.target);
-};
+let questionsArray = [];
 
 const getQuestions = (amount, category) => {
   const API =
@@ -55,7 +53,6 @@ const getQuestions = (amount, category) => {
 };
 
 const updateQuiz = () => {
-  console.log(questionsArray);
   const questionObj = questionsArray[currentQuestion];
 
   const categoryEl = document.getElementById("category-text");
@@ -69,8 +66,7 @@ const updateQuiz = () => {
   const answerEls = Array.from(document.querySelectorAll(".app__answer__text"));
   const randNum = getRand(0, 4);
   correctEl = answerEls.splice(randNum, 1);
-  correctEl[0].textContent = questionObj.correct_answer;
-  console.log(correctEl);
+  correctEl[0].innerHTML = questionObj.correct_answer;
   answerEls.forEach(
     (el, idx) => (el.innerHTML = questionObj.incorrect_answers[idx])
   );
@@ -120,7 +116,6 @@ const checkIfCorrect = () => {
   }
   if (correct.id === correctEl[0].id.split("-")[0]) {
     correctAnswersCounter++;
-    console.log(correctAnswersCounter);
   }
 };
 
@@ -128,14 +123,45 @@ const clearAnswerSelection = () => {
   answerInputs.forEach((input) => (input.checked = false));
 };
 
+const calcScore = () => {
+  return Math.floor((correctAnswersCounter / questionsAmount) * 100);
+};
+
+const updateWinModal = () => {
+  const correctEl = document.getElementById("correct-text");
+  const questionsAmountEl = document.getElementById("amount-text");
+  const scoreEl = document.getElementById("score-text");
+  correctEl.textContent = correctAnswersCounter;
+  questionsAmountEl.textContent = questionsAmount;
+  scoreEl.textContent = `${calcScore()}%`;
+  showElements(backdropEl, winModal);
+};
+
+const reset = () => {
+  const inputs = settingsForm.querySelectorAll("input.form__group__input");
+  clearInputs(inputs);
+  clearAnswerSelection();
+  questionsArray = [];
+  currentQuestion = 0;
+  questionsAmount = 0;
+  category = "";
+  correctAnswersCounter = 0;
+  isQuizEnd = false;
+};
+
+const newGameHandler = () => {
+  hideElements(winModal);
+  showElements(settingsModal);
+  reset();
+};
+
 const quizFormSubmitHandler = (e) => {
   e.preventDefault();
   const isAnswerPicked = checkAnswer();
   if (isAnswerPicked) currentQuestion++;
-  console.log(currentQuestion, questionsAmount);
   if (+currentQuestion >= +questionsAmount) {
-    console.log("end");
     isQuizEnd = true;
+    updateWinModal();
   }
   if (isAnswerPicked && !isQuizEnd) {
     checkAnswer();
@@ -147,6 +173,4 @@ const quizFormSubmitHandler = (e) => {
 
 settingsForm.addEventListener("submit", settingsFormSubmitHandler);
 quizForm.addEventListener("submit", quizFormSubmitHandler);
-answerElements.forEach((answer) => {
-  answer.addEventListener("click", answerCLickHandler);
-});
+newGameBtn.addEventListener("click", newGameHandler);

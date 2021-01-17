@@ -1,0 +1,107 @@
+.results {
+  @include flexColumn;
+  width: 90%;
+  padding: 1rem 2rem;
+
+  @include mq(768px) {
+    width: 75%;
+  }
+  @include mq(1025px) {
+    width: 55%;
+  }
+
+  .statsBar {
+    width: 100%;
+
+    .stats {
+      font-size: 1.4rem;
+      color: $stats-color;
+
+      @include mq(768px) {
+        font-size: 1.6rem;
+      }
+    }
+  }
+
+  .searchResultsContainer {
+    width: 100%;
+  }
+
+  .searchResults {
+    width: 100%;
+    list-style: none;
+  }
+
+  .resultItem {
+    @include flexColumn;
+    width: 100%;
+    padding: 0.5rem 0;
+    margin-bottom: 2rem;
+
+    @include mq(768px) {
+      padding: 1rem 0;
+    }
+  }
+
+  .resultTitle {
+    width: 100%;
+    font-size: 1.6rem;
+    line-height: 2rem;
+    text-align: left;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+    padding: 3px 2px;
+    white-space: nowrap;
+    @include mq(768px) {
+      font-size: 2rem;
+      line-height: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: $link-color;
+      cursor: pointer;
+
+      &:visited {
+        color: $link-visited-color;
+      }
+      &:hover {
+        text-decoration: underline;
+      }
+      &:focus {
+        outline: 2px solid $link-outline-color;
+      }
+    }
+  }
+
+  .resultContent {
+    display: flex;
+    width: 100%;
+  }
+
+  .resultImg {
+    margin-right: 1rem;
+    img {
+      width: 6rem;
+
+      @include mq(768px) {
+        width: 8rem;
+      }
+    }
+  }
+
+  .resultText {
+    flex-grow: 1;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    max-height: 6rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include mq(768px) {
+      font-size: 1.6rem;
+      line-height: 2.8rem;
+    }
+  }
+}
