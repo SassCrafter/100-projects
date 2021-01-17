@@ -14,6 +14,7 @@ const settingsForm = document.getElementById("quiz-settings-form");
 const quizForm = document.getElementById("quiz-form");
 const answerElements = document.querySelectorAll(".app__answer");
 const answerInputs = document.querySelectorAll(".app__answer-input");
+const loaderEl = document.getElementById("question-loading");
 
 const categories = {
   geography: "22",
@@ -41,12 +42,15 @@ const getQuestions = (amount, category) => {
     category === "all"
       ? `https://opentdb.com/api.php?amount=${amount}&type=multiple`
       : `https://opentdb.com/api.php?amount=${amount}&category=${categories[category]}&type=multiple`;
+
+  hideElements(backdropEl, settingsModal);
+  showElements(loaderEl);
   fetch(API)
     .then((response) => response.json())
     .then((data) => {
       questionsArray.push(...data.results);
       updateQuiz();
-      hideElements(backdropEl, settingsModal);
+      hideElements(loaderEl);
     });
 };
 

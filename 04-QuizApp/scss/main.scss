@@ -68,6 +68,66 @@ input[type="radio"] {
   z-index: 100;
 }
 
+.loader {
+  width: 100%;
+  height: 100%;
+  background: $white;
+  z-index: 300;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  &__circle {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: lighten($main-color, 15%);
+
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: linear-gradient(
+        0deg,
+        rgba(197, 66, 61, 1),
+        rgba(197, 66, 61, 0.1),
+        rgba(117, 17, 14, 0)
+      );
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: spin 800ms linear infinite;
+    }
+
+    &::after {
+      content: "";
+      width: 80%;
+      height: 80%;
+      border-radius: 50%;
+      background: $white;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(359deg);
+  }
+}
+
 .modal {
   width: 90%;
   max-width: 60rem;
@@ -78,7 +138,7 @@ input[type="radio"] {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 500;
+  z-index: 200;
 }
 
 .m-l-2 {
@@ -103,6 +163,7 @@ input[type="radio"] {
     text-transform: capitalize;
     font-weight: 500;
     margin-bottom: 0.5rem;
+    cursor: pointer;
 
     &.label--error {
       color: $wrong-color;
@@ -319,12 +380,14 @@ input[type="radio"] {
   &__answer {
     display: flex !important;
     align-items: center;
+    align-items: center;
     padding: 1.5rem;
     background-color: $gray;
     color: darken($dark, 30%);
     border: 2px dashed transparent;
     border-radius: 10rem;
     position: relative;
+    -webkit-tap-highlight-color: transparent;
 
     &::before {
       content: "";
@@ -337,10 +400,6 @@ input[type="radio"] {
       background-color: $main-color;
       opacity: 0.15;
       transition: width $t-time ease-in;
-    }
-
-    &:hover::before {
-      width: 100%;
     }
   }
 
@@ -365,6 +424,11 @@ input[type="radio"] {
       transform: translate(-50%, -50%);
       transition: background-color 150ms linear;
     }
+  }
+
+  &__text {
+    display: inline-block;
+    width: calc(100% - 3rem);
   }
 
   &__answer-input {
@@ -405,6 +469,10 @@ input[type="radio"] {
           height: 18rem;
         }
       }
+    }
+
+    &__answer:hover::before {
+      width: 100%;
     }
   }
 
