@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Raleway:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/main.js" type="module"></script>
+    <title>ToDo App</title>
+  </head>
+  <body>
+    <main class="app">
+      <h1 class="offscreen">Current Date and number of todos</h1>
+      <header class="app__header">
+        <h2 class="app__date" id="date">Thu,July 6, 2021</h2>
+        <p class="app__todos-num"><span id="todos-num">0</span> tasks</p>
+      </header>
+      <section class="app__todos">
+        <div class="app__todos__container">
+          <p class="text-center">Click the plus button to create new todo</p>
+          <ul class="app__todos__list" id="app__todos__list"></ul>
+        </div>
+        <button
+          class="btn btn--new-todo"
+          id="new-todo-button"
+          aria-label="new todo button"
+        >
+          <i class="fas fa-plus"></i>
+        </button>
+      </section>
+      <section class="app__new-todo" id="new-todo-section">
+        <button
+          class="btn btn--close"
+          id="close-creating-form"
+          aria-label="close new todo input"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+        <form class="form" id="new-todo-form">
+          <div class="form__group">
+            <label for="new-todo-input" class="offscreen"
+              >Enter todo text</label
+            >
+            <div class="input-bar">
+              <input type="text" id="new-todo-input" class="form__input" />
+              <div
+                class="none btn btn--clear"
+                id="clear"
+                role="button"
+                aria-label="clear input button"
+                tabindex="0"
+              >
+                <i class="fas fa-times"></i>
+              </div>
+              <button
+                type="submit"
+                class="btn btn--submit"
+                id="add-todo-btn"
+                aria-label="add todo"
+              >
+                <i class="fas fa-arrow-up"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

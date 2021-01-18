@@ -1,0 +1,72 @@
+$complete-color: #359f7a;
+$main-color: #9ec4ec;
+$header-background-color: #acc4e3;
+$background-color: #ebebeb;
+$text-color: #595e61;
+$complete-text-color: #9ca5a7;
+$white-color: #fff;
+$font-stack: "Raleway";
+
+%flex {
+  display: flex !important;
+  align-items: center;
+}
+
+@mixin flexColumn {
+  @extend %flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+@mixin flexCenter {
+  @extend %flex;
+  justify-content: center;
+}
+
+@mixin mq($size) {
+  @media only screen and (min-width: $size) {
+    @content;
+  }
+}
+@mixin mq-height($size) {
+  @media only screen and (min-height: $size) {
+    @content;
+  }
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: $font-stack;
+  line-height: 1.6;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: $background-color;
+  color: $text-color;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.2;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}

@@ -1,0 +1,253 @@
+.btn--new-todo, .btn--clear, .btn--submit, .input-bar, .app, .app__todos__list, .app__todo, .app__todo__button {
+  display: flex !important;
+  align-items: center;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Raleway";
+  line-height: 1.6;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #ebebeb;
+  color: #595e61;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.2;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.offscreen {
+  position: absolute;
+  left: -100rem;
+}
+
+.btn {
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  color: #fff;
+  background-color: #9ec4ec;
+  padding: 1rem 1.5rem;
+}
+
+.btn:focus {
+  border-bottom: 1px solid #595e61;
+}
+
+.btn--new-todo {
+  padding: 0;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  justify-content: center;
+  font-size: 3rem;
+  margin-left: auto;
+  animation: pulse 1500ms linear infinite alternate;
+}
+
+.btn--clear, .btn--submit {
+  justify-content: center;
+  background: #fff;
+  color: #595e61;
+  height: 100%;
+}
+
+.btn--clear {
+  border-right: thin solid #ebebeb;
+}
+
+.btn--close {
+  display: block;
+  margin-left: auto;
+  margin-bottom: 2rem;
+}
+
+.none {
+  display: none !important;
+}
+
+.form {
+  width: 100%;
+}
+
+.form__group {
+  margin-bottom: 1rem;
+}
+
+.input-bar {
+  width: 100%;
+  height: 4rem;
+  justify-content: center;
+}
+
+.input-bar input {
+  flex-grow: 1;
+  display: inline-block;
+  outline: none;
+  border: none;
+  font-size: 1.6rem;
+  height: 100%;
+  width: 100%;
+  padding: 0 1rem;
+  background-color: #fff;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.app {
+  width: 100%;
+  max-width: 50rem;
+  margin: 0 auto;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.app__header {
+  width: 130%;
+  padding: 2rem;
+  text-align: center;
+  border-bottom-left-radius: 50rem;
+  border-bottom-right-radius: 50rem;
+  background-color: #acc4e3;
+  color: #fff;
+}
+
+@media only screen and (min-width: 50rem) {
+  .app__header {
+    width: 100%;
+  }
+}
+
+.app__date {
+  font-size: 1.8rem;
+  letter-spacing: 0.1rem;
+  margin-bottom: 0.5rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .app__date {
+    font-size: 2.4rem;
+    letter-spacing: 0.3rem;
+  }
+}
+
+.app__todos-num {
+  font-size: 1.6rem;
+}
+
+.app__todos {
+  width: 100%;
+  padding: 2rem;
+}
+
+.app__todos__container {
+  min-height: calc(100vh - 20rem);
+}
+
+.app__todos__list {
+  width: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 1rem;
+}
+
+.app__todo {
+  width: 100%;
+  padding: 1rem 0.5rem;
+  margin: 0.5rem 0;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) {
+  .app__todo {
+    transition: box-shadow 300ms linear;
+  }
+  .app__todo:hover {
+    box-shadow: 0 0.3rem 1.5rem rgba(0, 0, 0, 0.15);
+  }
+}
+
+.app__todo--complete .app__todo__text {
+  text-decoration: line-through;
+}
+
+.app__todo--complete .app__todo__button {
+  border-color: #359f7a;
+}
+
+.app__todo__text {
+  flex-grow: 1;
+  font-size: 1.6rem;
+}
+
+.app__todo__button {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 2px solid #9ca5a7;
+  justify-content: center;
+  color: #359f7a;
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+.app__new-todo {
+  width: 100%;
+  padding: 2rem;
+  position: absolute;
+  background: #ebebeb;
+  bottom: 0;
+  transform: translateY(20rem);
+  box-shadow: 0 -0.3rem 1.5rem rgba(0, 0, 0, 0.15);
+  transition: transform 400ms ease-in;
+  z-index: 100;
+}
+
+@media only screen and (min-width: 500px) {
+  .app__new-todo {
+    width: 95%;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.15);
+  }
+}
+
+.app__new-todo.visible {
+  transform: translateY(0);
+}
