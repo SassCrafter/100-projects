@@ -1,0 +1,20 @@
+.feature {
+  &__icon {
+    display: block;
+    width: 4rem;
+    height: auto;
+    margin: 0 auto;
+    margin-bottom: 0.5rem;
+
+    @include breakpoint-up("large") {
+      margin-left: 0;
+    }
+  }
+
+  &__title {
+    margin-bottom: 1rem;
+  }
+
+  &__description {
+  }
+}

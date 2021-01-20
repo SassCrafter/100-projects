@@ -1,0 +1,66 @@
+.footer {
+  text-align: center;
+  &__items {
+    @include breakpoint-up("medium") {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "first second"
+        "third fourth";
+    }
+    @include breakpoint-up("large") {
+      grid-template-columns: repeat(3, 1fr) 2fr;
+      grid-template-areas: "first second third fourth fourth";
+    }
+  }
+
+  &__item {
+    width: 100%;
+    padding: 1rem;
+
+    &:first-child {
+      grid-area: first;
+    }
+    &:nth-child(2) {
+      grid-area: second;
+    }
+    &:nth-child(3) {
+      grid-area: third;
+    }
+    &:nth-child(4) {
+      grid-area: fourth;
+    }
+  }
+
+  &__social {
+    margin-top: 2rem;
+    li {
+      &:not(:last-child) {
+        margin-right: 1rem;
+
+        @include breakpoint-up("large") {
+          margin-right: 0.15rem;
+        }
+      }
+    }
+  }
+
+  a:not(.btn) {
+    display: inline-block;
+    padding: 0.25rem;
+    color: white;
+    text-transform: capitalize;
+    margin: 0.25rem 0;
+    transition: color $t-time ease-in-out;
+
+    &:hover {
+      color: $lime-green;
+    }
+  }
+
+  .rights {
+    margin-top: 2rem;
+    color: $grayish-blue;
+    font-size: $font-small;
+  }
+}
