@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Anton&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/app.js" type="module"></script>
+    <title>Weather App</title>
+  </head>
+  <body>
+    <section class="app">
+      <div class="app__container flex flex--col">
+        <header class="app__header">
+          <h3 class="app__city" id="city">City</h3>
+          <h4 class="app__date" id="date">day time</h4>
+          <div class="app__header-icon">
+            <img
+              src="http://openweathermap.org/img/wn/10d@2x.png"
+              id="header-icon"
+              alt=""
+            />
+            <span id="weather-description">sunny</span>
+          </div>
+        </header>
+        <div class="app__main flex flex--col flex--jc-c">
+          <div class="app__degrees">
+            <h2>
+              <span id="degrees"></span>&deg;<span
+                id="degree-type"
+                data-degree-type="c"
+              ></span>
+            </h2>
+            <p class="change-degrees">Click to change to fahrenheit</p>
+            <div class="app__line"></div>
+          </div>
+        </div>
+        <div class="app__extra">
+          <div class="app__extra-item app__extra-item--humidity">
+            <img
+              src="./images/icons/humidity.svg"
+              alt=""
+              class="app__extra-icon"
+            />
+            <div class="app__extra-text">
+              <h5>humidity</h5>
+              <h4><span id="humidity-text">94</span></h4>
+            </div>
+          </div>
+          <!-- App extra item end -->
+          <div class="app__extra-item app__extra-item--wind">
+            <img src="./images/icons/wind.svg" alt="" class="app__extra-icon" />
+            <div class="app__extra-text">
+              <h5>wind</h5>
+              <h4><span id="wind-text">4</span>m/s</h4>
+            </div>
+          </div>
+          <!-- App extra item end -->
+          <div class="app__extra-item app__extra-item--temp">
+            <img
+              src="./images/icons/thermometer.svg"
+              alt=""
+              class="app__extra-icon"
+            />
+            <div class="app__extra-text">
+              <h5>feels like</h5>
+              <h4>
+                <span id="feels-degrees">0</span>&deg;<span
+                  id="feels-degree-type"
+                  data-degree-type="c"
+                ></span>
+              </h4>
+            </div>
+          </div>
+          <!-- App extra item end -->
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
