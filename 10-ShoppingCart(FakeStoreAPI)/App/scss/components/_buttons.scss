@@ -18,6 +18,13 @@
     text-transform: uppercase;
   }
 
+  &--transparent {
+    padding: 0;
+    font-size: 1.6rem;
+    background-color: transparent;
+    color: $main-color;
+  }
+
   i {
     font-size: 1.4rem;
     //margin-left: 0.5rem;

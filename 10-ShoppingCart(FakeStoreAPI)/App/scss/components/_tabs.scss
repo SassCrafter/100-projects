@@ -1,0 +1,24 @@
+.tabs {
+  max-width: 40rem;
+  margin: 0 auto 3rem auto;
+
+  &__item {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: transparent;
+    text-transform: capitalize;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: $unactive-text-color;
+    transition: color $t-time ease-in-out;
+
+    &:hover {
+      color: $main-color;
+    }
+
+    &.active {
+      color: $text-color;
+    }
+  }
+}
