@@ -1,0 +1,25 @@
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  outline: none;
+  border: none;
+  background: $text-color;
+  color: $white-color;
+  padding: 1rem 2.5rem;
+  text-transform: capitalize;
+  transition: color $t-time ease-in-out;
+
+  &:hover {
+    color: $button-hover-color;
+  }
+
+  &--upper {
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+  }
+
+  i {
+    font-size: 1.4rem;
+    //margin-left: 0.5rem;
+  }
+}

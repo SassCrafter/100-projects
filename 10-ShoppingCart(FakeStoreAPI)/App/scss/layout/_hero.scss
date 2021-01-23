@@ -1,0 +1,21 @@
+.hero {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+
+  .social {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background: $overlay-color;
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+    a {
+      display: inline-block;
+      padding: 0.5rem;
+      color: $white-color;
+    }
+  }
+}

@@ -1,3 +1,3 @@
-const WEATHER_API_KEY = "Your Key";
+const WEATHER_API_KEY = "ef131bd93e82628d91b58c23659a7922";
 
 export default WEATHER_API_KEY;
