@@ -16,12 +16,22 @@
 .product {
   width: 100%;
   padding: 2rem;
-  transition: box-shadow $t-time ease-in-out;
   cursor: pointer;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all $t-time * 2 ease-in-out;
 
   @include breakpoint-up("medium") {
     text-align: left;
+  }
+
+  &.hidden {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: -200rem;
+    left: -200rem;
   }
 
   &:hover {
@@ -34,12 +44,7 @@
     @include breakpoint-up("medium") {
       .product__btn {
         opacity: 1;
-        transform: translateY(0);
-      }
-
-      .product__title {
-        opacity: 0;
-        transition: opacity $t-time ease-in-out;
+        transform: translate(0, -50%);
       }
     }
   }
@@ -68,7 +73,6 @@
     font-size: 1.6rem;
     line-height: 1.2;
     margin-bottom: 2rem;
-    transition: opacity $t-time ease-in-out 100ms;
   }
   &__price {
     font-size: 2.2rem;
@@ -77,11 +81,18 @@
   }
 
   &__btn {
-    font-size: 2rem;
+    width: 3rem;
+    height: 3rem;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
-    top: 1rem;
-    transform: translateY(-4rem);
+    top: 50%;
+    right: 0;
+    transform: translate(4rem, -50%);
     opacity: 0;
-    transition: transform $t-time ease-in-out, opacity $t-time ease-in-out;
+    transition: opacity $t-time ease-in-out, transform $t-time ease-in-out,
+      color $t-time ease-in-out;
   }
 }

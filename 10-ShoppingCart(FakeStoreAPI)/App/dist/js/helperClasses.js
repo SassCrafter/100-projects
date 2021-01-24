@@ -13,7 +13,6 @@ class Component {
       });
     }
     const renderHookEl = document.getElementById(this.renderHookId);
-    console.log(this.renderHookId);
     renderHookEl.appendChild(rootEl);
     return rootEl;
   }

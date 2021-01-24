@@ -573,19 +573,27 @@ img {
 .product {
   width: 100%;
   padding: 2rem;
-  -webkit-transition: -webkit-box-shadow 300ms ease-in-out;
-  transition: -webkit-box-shadow 300ms ease-in-out;
-  -o-transition: box-shadow 300ms ease-in-out;
-  transition: box-shadow 300ms ease-in-out;
-  transition: box-shadow 300ms ease-in-out, -webkit-box-shadow 300ms ease-in-out;
   cursor: pointer;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+  -webkit-transition: all 600ms ease-in-out;
+  -o-transition: all 600ms ease-in-out;
+  transition: all 600ms ease-in-out;
 }
 
 @media screen and (min-width: 40em) {
   .product {
     text-align: left;
   }
+}
+
+.product.hidden {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: -200rem;
+  left: -200rem;
 }
 
 .product:hover {
@@ -602,15 +610,9 @@ img {
 @media screen and (min-width: 40em) {
   .product:hover .product__btn {
     opacity: 1;
-    -webkit-transform: translateY(0);
-    -ms-transform: translateY(0);
-    transform: translateY(0);
-  }
-  .product:hover .product__title {
-    opacity: 0;
-    -webkit-transition: opacity 300ms ease-in-out;
-    -o-transition: opacity 300ms ease-in-out;
-    transition: opacity 300ms ease-in-out;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
   }
 }
 
@@ -649,9 +651,6 @@ img {
   font-size: 1.6rem;
   line-height: 1.2;
   margin-bottom: 2rem;
-  -webkit-transition: opacity 300ms ease-in-out 100ms;
-  -o-transition: opacity 300ms ease-in-out 100ms;
-  transition: opacity 300ms ease-in-out 100ms;
 }
 
 .product__price {
@@ -661,18 +660,33 @@ img {
 }
 
 .product__btn {
-  font-size: 2rem;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   position: absolute;
-  top: 1rem;
-  -webkit-transform: translateY(-4rem);
-  -ms-transform: translateY(-4rem);
-  transform: translateY(-4rem);
+  top: 50%;
+  right: 0;
+  -webkit-transform: translate(4rem, -50%);
+  -ms-transform: translate(4rem, -50%);
+  transform: translate(4rem, -50%);
   opacity: 0;
-  -webkit-transition: opacity 300ms ease-in-out,
+  -webkit-transition: opacity 300ms ease-in-out, color 300ms ease-in-out,
     -webkit-transform 300ms ease-in-out;
-  transition: opacity 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
-  -o-transition: transform 300ms ease-in-out, opacity 300ms ease-in-out;
-  transition: transform 300ms ease-in-out, opacity 300ms ease-in-out;
-  transition: transform 300ms ease-in-out, opacity 300ms ease-in-out,
+  transition: opacity 300ms ease-in-out, color 300ms ease-in-out,
     -webkit-transform 300ms ease-in-out;
+  -o-transition: opacity 300ms ease-in-out, transform 300ms ease-in-out,
+    color 300ms ease-in-out;
+  transition: opacity 300ms ease-in-out, transform 300ms ease-in-out,
+    color 300ms ease-in-out;
+  transition: opacity 300ms ease-in-out, transform 300ms ease-in-out,
+    color 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
 }
