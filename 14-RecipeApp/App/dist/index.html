@@ -16,11 +16,18 @@
     <script src="./js/app.js" type="module"></script>
     <title>Recipe App</title>
   </head>
-  <body>
+  <body id="body">
     <header class="header" id="header">
       <nav class="header__nav container flex flex--jc-sb">
-        <button class="hamburger flex flex--center" aria-label="Hamburger menu">
+        <button
+          class="hamburger flex flex--center"
+          id="hamburger"
+          aria-label="Hamburger menu"
+        >
           <div class="hamburger__line"></div>
+        </button>
+        <button class="back-btn hidden" id="back-btn">
+          <i class="fas fa-arrow-left hidden"></i>
         </button>
         <a href="index.html" class="header__link">home</a>
         <a href="#" class="header__profile profile__link">
@@ -31,21 +38,23 @@
 
     <section class="hero">
       <div class="container">
-        <form class="form form--search" id="search-form">
-          <div class="form__group flex flex--center">
-            <label for="search-recipe" class="offscreen">Find recipes</label>
-            <input
-              type="text"
-              id="search-recipe"
-              placeholder="Find recipes..."
-              required
-              autocomplete="false"
-            />
-            <button type="submit">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
-        </form>
+        <div class="hero__content no-padding">
+          <form class="form form--search" id="search-form">
+            <div class="form__group flex flex--center">
+              <label for="search-recipe" class="offscreen">Find recipes</label>
+              <input
+                type="text"
+                id="search-recipe"
+                placeholder="Find recipes..."
+                required
+                autocomplete="false"
+              />
+              <button type="submit">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </section>
 
@@ -55,5 +64,19 @@
         <div class="loader hidden" id="recipes-loader"></div>
       </div>
     </section>
+
+    <!-- <section class="recipe-expanded">
+      <div class="hero recipe__hero">
+        <div class="hero__content">
+          <div class="recipe__top">
+            <h3 class="recipe__title recipe__title--exp">Title</h3>
+            <p class="recipe__desc">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis,
+              in.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section> -->
   </body>
 </html>

@@ -1,5 +1,6 @@
 import { Component } from "./helperClasses.js";
 import { RecipeItem } from "./recipe.js";
+import { App } from "./app.js";
 
 export class RecipeList extends Component {
   searchString;
@@ -46,8 +47,8 @@ export class RecipeList extends Component {
         "recipes-text"
       ).textContent = `Found ${this.recipes.length} recipes`;
       if (this.recipes) {
-        this.recipes.forEach((recipe) => {
-          this.recipesEls.push(new RecipeItem("recipes-list", recipe));
+        this.recipes.forEach((recipe, idx) => {
+          this.recipesEls.push(new RecipeItem("recipes-list", recipe, idx));
         });
       }
     }
@@ -62,9 +63,16 @@ export class RecipeList extends Component {
     console.log(this.recipes);
   }
 
+  recipeClickHanlder(e) {
+    const recipeElId = e.target.closest("li.recipe").dataset.id;
+    App.recipeExpand(recipeElId);
+  }
+
   render() {
+    console.log("Render");
     const listEl = this.createRootElement("ul", "recipes__list", [
       { name: "id", value: "recipes-list" },
     ]);
+    listEl.addEventListener("click", this.recipeClickHanlder.bind(this));
   }
 }

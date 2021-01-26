@@ -1,0 +1,20 @@
+.recipe-expanded {
+  //display: none;
+  width: 100%;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: $background-color;
+
+  &.visible {
+    display: block;
+  }
+
+  .hero {
+    &__content {
+      border-radius: 0.5rem;
+      bottom: -5rem;
+    }
+  }
+}
