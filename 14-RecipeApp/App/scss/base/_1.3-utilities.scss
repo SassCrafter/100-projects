@@ -1,0 +1,45 @@
+.container {
+    width: 100%;
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 2rem;
+    overflow: hidden;
+
+    &--nop {
+        padding: 0;
+    }
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+
+    &--jc-sb {
+        justify-content: space-between;
+    }
+
+    &--center {
+        justify-content: center;
+    }
+}
+
+.offscreen {
+    position: absolute;
+    top: -3000px;
+    left: -3000px;
+}
+
+
+.text {
+    font-size: 1.4rem;
+    color: $light-text-color;
+}
+
+%btn {
+    display: inline-block;
+    outline: none;
+    border: none;
+    background: transparent;
+    padding: .25rem;
+    font-size: 1.4rem;
+}

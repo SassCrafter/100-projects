@@ -1,0 +1,66 @@
+.recipes {
+    text-align: center;
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: center;
+        margin: 1.5rem 0;
+    }
+
+    .recipe {
+        width: 100%;
+        min-height: 20rem;
+        padding: 1.5rem;
+        margin: 1rem 0;
+        border-radius: .5rem;
+        box-shadow: 0 0 1rem rgba(0,0,0, .15);
+        //background-image: url('../images/hero-bg.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        cursor: pointer;
+        transition: transform 300ms ease-in-out;
+
+        @include mq(768px) {
+            width: 40%;
+            margin: 1.5rem;    
+            
+            &:hover {
+                transform: translateY(-1rem);
+            }
+        }
+        @include mq(900px) {
+            width: 30%;
+            min-height: 25rem;
+            margin: 1.5rem;        
+        }
+
+        &__content {
+            width: 100%;
+            padding: 1.5rem;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(0,0,0, .6);
+        }
+
+        &__title {
+            color: white;
+            font-size: 1.6rem;
+            font-weight: 500;
+            line-height: 1.1;
+            text-align: left;
+            margin-bottom: 0;
+            width: 80%;
+        }
+
+        &__like {
+            @extend %btn;
+            padding: .5rem;
+            color: white;
+        }
+    }
+}

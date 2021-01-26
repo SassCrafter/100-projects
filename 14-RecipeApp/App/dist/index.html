@@ -3,12 +3,57 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="./js/app.js" defer></script>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/app.js" type="module"></script>
     <title>Recipe App</title>
   </head>
   <body>
-    <header class="header">
-      <nav class="header__nav"></nav>
+    <header class="header" id="header">
+      <nav class="header__nav container flex flex--jc-sb">
+        <button class="hamburger flex flex--center" aria-label="Hamburger menu">
+          <div class="hamburger__line"></div>
+        </button>
+        <a href="index.html" class="header__link">home</a>
+        <a href="#" class="header__profile profile__link">
+          <img src="./images/profile-pic.jpg" alt="Your Profile" />
+        </a>
+      </nav>
     </header>
+
+    <section class="hero">
+      <div class="container">
+        <form class="form form--search" id="search-form">
+          <div class="form__group flex flex--center">
+            <label for="search-recipe" class="offscreen">Find recipes</label>
+            <input
+              type="text"
+              id="search-recipe"
+              placeholder="Find recipes..."
+              required
+              autocomplete="false"
+            />
+            <button type="submit">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="recipes">
+      <div class="container" id="recipes-container">
+        <p class="text" id="recipes-text">You have no saved recipes</p>
+        <div class="loader hidden" id="recipes-loader"></div>
+      </div>
+    </section>
   </body>
 </html>

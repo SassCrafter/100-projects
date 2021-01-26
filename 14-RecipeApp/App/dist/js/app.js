@@ -1,9 +1,23 @@
-const getMeals = async () => {
-  const response = await fetch(
-    "https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772"
-  );
-  const data = await response.json();
-  console.log(data);
-};
+import {RecipeList} from './recipeList.js';
+import {SearchBar} from './searchBar.js';
+import {headerScrollHandler} from './header.js';
 
-getMeals();
+
+export class App {
+  static init() {
+    this.recipeList = new RecipeList('recipes-container');
+    this.searchBar = new SearchBar();
+  }
+
+  static searchRecipe() {
+    this.recipeList.searchString = this.searchBar.searchString;
+    this.recipeList.getsRecipes();
+  }
+}
+
+
+App.init();
+
+
+window.addEventListener('scroll', headerScrollHandler);
+
