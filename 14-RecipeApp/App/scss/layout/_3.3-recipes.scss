@@ -1,6 +1,11 @@
 .recipes {
     text-align: center;
 
+    &.shrink {
+        height: 0;
+        overflow: hidden;
+    }
+
     &__list {
         display: flex;
         flex-wrap: wrap;

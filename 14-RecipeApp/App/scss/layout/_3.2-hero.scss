@@ -1,5 +1,8 @@
 .hero {
   width: 100%;
+  max-width: $max-width;
+    margin-left: auto;
+    margin-right: auto;
   height: 35vh;
   background-image: url("../images/hero-bg.jpg");
   background-size: cover;

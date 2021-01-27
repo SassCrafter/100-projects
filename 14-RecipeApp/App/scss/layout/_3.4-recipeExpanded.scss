@@ -1,20 +1,116 @@
 .recipe-expanded {
-  //display: none;
   width: 100%;
   min-height: 100vh;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   background: $background-color;
-
-  &.visible {
-    display: block;
-  }
+  text-align: center;
 
   .hero {
+    margin-bottom: 8rem;
+    @include mq(800px) {
+      height: 45vh;
+    }
     &__content {
       border-radius: 0.5rem;
-      bottom: -5rem;
+      @include mq(800px) {
+        top: 50%;
+        left: 50%;
+        bottom: auto;
+        transform: translate(-50%, -50%);
+      }
+    }
+    @include mq(1400px) {
+      height: 50vh;
     }
   }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 0;
+    // background: $text-gradient;
+    // text-shadow: 0 0 .5rem rgba(0,0,0, .1);
+    // -webkit-background-clip: text;
+    // -webkit-text-fill-color: transparent;
+  }
+
+  h4 {
+    text-transform: uppercase;
+    letter-spacing: .3rem;
+    font-weight: 400;
+  }
+
+  
+
+  &__ingredients {
+    padding: 2rem;
+    padding-bottom: 4rem;
+    //height: 50vh;
+    //overflow-y: scroll;
+
+    ul {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      //flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      background: white;
+      box-shadow: 0 .2rem 1rem rgba(0,0,0, .15);
+      padding: 1.5rem;
+      margin: 1rem 0;
+
+      @include mq(768px) {
+        width: 45%;
+        margin: 1rem;
+      }
+
+      @include mq(900px) {
+        width: 30%;
+      }
+
+      h5 {
+        margin-bottom: 0;
+        font-size: 1.7rem;
+        font-weight: 400;
+        text-align: left;
+        flex: 2;
+      }
+
+      p {
+        margin-top: .5rem;
+        font-size: 1rem;
+        font-weight: bold;
+        color: $light-text-color;
+        text-align: right;
+        flex: 1;
+
+        span {
+          font-size: 1.5rem;
+          font-weight: 400;
+          display: block;
+          margin-top: .5rem;
+          color: $main-color;
+        }
+      }
+    }
+  }
+
+  .instruction {
+    font-size: 1.6rem;
+    width: 90%;
+    max-width: 60rem;
+    margin: 1rem auto;
+    text-align: left;
+    line-height: 1.6;
+  } 
 }
