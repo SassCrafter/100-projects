@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="icon" type="image/png" href="./favicon.ico" />
+
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/app.js" defer></script>
+    <title>Auto Text Effect</title>
+  </head>
+  <body>
+    <section class="auto-text">
+      <div class="text">
+        <h1 id="auto-text" data-text="We love Programming"></h1>
+      </div>
+      <form>
+        <label for="text-speed">1</label>
+        <input
+          type="range"
+          id="text-speed"
+          value="1"
+          min=".5"
+          max="5"
+          step="0.1"
+        />
+      </form>
+    </section>
+  </body>
+</html>
