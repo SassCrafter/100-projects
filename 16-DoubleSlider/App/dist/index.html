@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
+
+    <link rel="icon" type="image/png" href="./favicon.ico" />
+
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/app.js" defer></script>
+    <title>Vertical Double Slider</title>
+  </head>
+  <body>
+    <section class="slider">
+      <div class="slider__container">
+        <div class="slider__left" id="left-side">
+          <div class="slider__item slider__item--left left-one">
+            <h2>Warm Sand</h2>
+            <p>in the sunset</p>
+          </div>
+          <div class="slider__item slider__item--left left-two">
+            <h2>Lonely castle</h2>
+            <p>in the wilderness</p>
+          </div>
+          <div class="slider__item slider__item--left left-three">
+            <h2>What's hidden</h2>
+            <p>in the darkness</p>
+          </div>
+          <div class="slider__item slider__item--left left-four">
+            <h2>nature flower</h2>
+            <p>all in pink</p>
+          </div>
+        </div>
+        <div class="slider__right" id="right-side">
+          <div class="slider__item slider__item--right right-one"></div>
+          <div class="slider__item slider__item--right right-two"></div>
+          <div class="slider__item slider__item--right right-three"></div>
+          <div class="slider__item slider__item--right right-four"></div>
+        </div>
+      </div>
+      <div class="slider__navigation">
+        <button class="btn btn--next" id="next-slide">
+          <i class="fas fa-arrow-down"></i>
+        </button>
+        <button class="btn btn--prev" id="prev-slide">
+          <i class="fas fa-arrow-up"></i>
+        </button>
+      </div>
+    </section>
+  </body>
+</html>
