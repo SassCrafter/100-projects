@@ -1,119 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
 
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style.css" />
     <script src="./js/app.js" defer></script>
     <title>Text Shadow Generator</title>
-</head>
-<body>
+  </head>
+  <body>
     <header class="header">
-        <div class="container">
-            <h1>CSS Text Shadow Generator</h1>
-        </div>
+      <div class="container">
+        <h1>CSS Text Shadow Generator</h1>
+      </div>
     </header>
 
     <generator class="generator">
-        <div class="container">
-            <section class="generator__top generator__item generator__item--preview">
-                <h2 class="topic">shadow preview</h2>
-                <div class="generator__item__content">
-                    <div class="flex">
-                        <div class="flex__item input-group">
-                            <label for="text-color">text color</label>
-                            <div>
-                                <input type="color" class="text-inputs" data-type = 'text-color' id="text-color" value="#000000">
-                                <input type="text" class="text-inputs" data-type = 'text-color' id="text-color-hex" value="#000000">
-                            </div>
-                        </div>
-                        <div class=" flex__item input-group">
-                            <label for="bg-color">Background color</label>
-                            <div>
-                                <input type="color" class="text-inputs" data-type = 'background-color' id="bg-color" value="#ffffff">
-                                <input type="text" class="text-inputs" id="bg-color-hex" value="#ffffff" data-type = 'background-color'>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="preview" id="preview-container">
-                        <h3 class="preview__text" id="preview-text">This is the preview text</h3>
-                    </div>
+      <div class="container">
+        <section
+          class="generator__top generator__item generator__item--preview"
+        >
+          <h2 class="topic">shadow preview</h2>
+          <div class="generator__item__content">
+            <div class="flex">
+              <div class="flex__item input-group">
+                <label for="text-color">text color</label>
+                <div>
+                  <input
+                    type="color"
+                    class="text-inputs"
+                    data-type="text-color"
+                    id="text-color"
+                    value="#000000"
+                  />
+                  <input
+                    type="text"
+                    class="text-inputs"
+                    data-type="text-color"
+                    id="text-color-hex"
+                    value="#000000"
+                  />
                 </div>
-                
-            </section>
-            <div class="flex generator__bottom">
-                <section class="flex__item  generator__item generator__item--options">
-                    <h2 class="topic">shadow options</h2>
-                    <div class="generator__item__content">
-                        <div class="input-group">
-                            <label for="horizontal-length">Horizontal length: <span id="h-len-num">3</span><span class="main-color">px</span></label>
-                            <input type="range" class='shadow-input' data-type="h-len" id="horizontal-length" min="-20" max="20" value="3">
-                        </div>
-                        <div class="input-group">
-                            <label for="vertical-length">vertical length: <span id="v-len-num">3</span><span class="main-color">px</span></label>
-                            <input type="range" class='shadow-input' data-type="v-len" id="vertical-length" min="-20" max="20" value="3">
-                        </div>
-                        <div class="input-group">
-                            <label for="blur">blur radius: <span id="h-len-num">2</span><span class="main-color">px</span></label>
-                            <input type="range" class='shadow-input' data-type="blur-r" id="horizontal-length" min="0" max="25" value="2">
-                        </div>
-                        <div class="input-group">
-                            <label for="opacity">shadow opacity: <span id="h-len-num">1</span></label>
-                            <input type="range" class='shadow-input' data-type="shadow-opacity" id="opacity" min="0" max="1" value="1" step="0.01">
-                        </div>
-                        <div class="input-group">
-                            <label for="shadow-color">shadow color</label>
-                            <div>
-                                <input type="color" class='shadow-input' data-type="shadow-color" id="shadow-color" value="#A82727">
-                                <input type="text" class='shadow-input' data-type="shadow-color" id="shadow-color-hex" value="#A82727">
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <div class="flex__item">
-                    <section class="generator__item generator__item--multiple-shadows">
-                        <h2 class="topic">multiple shadows</h2>
-                        <div class="generator__item__content">
-                            <ul class="shadows-list" id="shadow-list">
-                                <li>
-                                    <span id="shadow-1" data-shnum='1'>
-                                        1
-                                    </span>
-                                </li>
-
-                                <li class="add-shadow-li" id="add-shadow">
-                                    <span>
-                                        <i class="fas fa-plus"></i>
-                                    </span>
-                                </li>
-                            </ul>
-                        </div>
-                    </section>
-                    <section class="generator__item generator__item--code">
-                        <div class="generator__item__header">
-                            <h2 class="topic"><span class="upper">css</span> code</h2>
-                            <button class="btn btn--copy">
-                                <i class="fas fa-copy"></i>
-                            </button>
-                        </div>
-                        <div class="generator__item__content">
-                            <div class="code">
-                                <p class="code__string" id="code-string">text-shadow: 3px 3px 2px rgba(168, 39, 39, 1);</p>
-                            </div>
-                        </div>
-                    </section>
+              </div>
+              <div class="flex__item input-group">
+                <label for="bg-color">Background color</label>
+                <div>
+                  <input
+                    type="color"
+                    class="text-inputs"
+                    data-type="background-color"
+                    id="bg-color"
+                    value="#ffffff"
+                  />
+                  <input
+                    type="text"
+                    class="text-inputs"
+                    id="bg-color-hex"
+                    value="#ffffff"
+                    data-type="background-color"
+                  />
                 </div>
+              </div>
             </div>
+            <div class="preview" id="preview-container">
+              <h3 class="preview__text" id="preview-text">
+                This is the preview text
+              </h3>
+            </div>
+          </div>
+        </section>
+        <div class="flex generator__bottom">
+          <section class="flex__item generator__item generator__item--options">
+            <h2 class="topic">shadow options</h2>
+            <div class="generator__item__content">
+              <div class="input-group">
+                <label for="horizontal-length"
+                  >Horizontal length: <span id="h-len-num">3</span
+                  ><span class="main-color">px</span></label
+                >
+                <input
+                  type="range"
+                  class="shadow-input"
+                  data-type="hLen"
+                  id="horizontal-length"
+                  min="-20"
+                  max="20"
+                  value="3"
+                />
+              </div>
+              <div class="input-group">
+                <label for="vertical-length"
+                  >vertical length: <span id="v-len-num">3</span
+                  ><span class="main-color">px</span></label
+                >
+                <input
+                  type="range"
+                  class="shadow-input"
+                  data-type="vLen"
+                  id="vertical-length"
+                  min="-20"
+                  max="20"
+                  value="3"
+                />
+              </div>
+              <div class="input-group">
+                <label for="blur"
+                  >blur radius: <span id="h-len-num">2</span
+                  ><span class="main-color">px</span></label
+                >
+                <input
+                  type="range"
+                  class="shadow-input"
+                  data-type="blurRadius"
+                  id="horizontal-length"
+                  min="0"
+                  max="25"
+                  value="2"
+                />
+              </div>
+              <div class="input-group">
+                <label for="opacity"
+                  >shadow opacity: <span id="h-len-num">1</span></label
+                >
+                <input
+                  type="range"
+                  class="shadow-input"
+                  data-type="opacity"
+                  id="opacity"
+                  min="0"
+                  max="1"
+                  value="1"
+                  step="0.01"
+                />
+              </div>
+              <div class="input-group">
+                <label for="shadow-color">shadow color</label>
+                <div>
+                  <input
+                    type="color"
+                    class="shadow-input"
+                    data-type="shadowColor"
+                    id="shadow-color"
+                    value="#A82727"
+                  />
+                  <input
+                    type="text"
+                    class="shadow-input"
+                    data-type="shadowColor"
+                    id="shadow-color-hex"
+                    value="#A82727"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="flex__item">
+            <section class="generator__item generator__item--multiple-shadows">
+              <h2 class="topic">multiple shadows</h2>
+              <div class="generator__item__content">
+                <ul class="shadows-list" id="shadow-list">
+                  <li class="first-shadow active">
+                    <span id="shadow-1" data-shnum="1"> 1 </span>
+                  </li>
+
+                  <li class="add-shadow-li" id="add-shadow">
+                    <span>
+                      <i class="fas fa-plus"></i>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </section>
+            <section class="generator__item generator__item--code">
+              <div class="generator__item__header">
+                <h2 class="topic"><span class="upper">css</span> code</h2>
+                <button class="btn btn--copy">
+                  <i class="fas fa-copy"></i>
+                </button>
+              </div>
+              <div class="generator__item__content">
+                <div class="code">
+                  <p class="code__string" id="code-string">
+                    text-shadow: 3px 3px 2px rgba(168, 39, 39, 1);
+                  </p>
+                </div>
+              </div>
+            </section>
+          </div>
         </div>
+      </div>
     </generator>
-</body>
+  </body>
 </html>
