@@ -57,6 +57,10 @@
   text-transform: uppercase;
 }
 
+.relative {
+  position: relative;
+}
+
 label {
   display: block;
   text-transform: capitalize;
@@ -367,6 +371,37 @@ a {
 @media screen and (min-width: 768px) {
   .generator .code__string {
     font-size: 1.4rem;
+  }
+}
+
+.generator .tooltip {
+  padding: .5rem 1rem;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  position: absolute;
+  right: 0;
+  top: -4rem;
+  transform: translateY(4rem);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.generator .tooltip.show {
+  animation: showTooltip 1000ms linear;
+}
+
+.generator .tooltip span {
+  font-size: 1.4rem;
+}
+
+@keyframes showTooltip {
+  50% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0;
   }
 }
 /*# sourceMappingURL=style.css.map */

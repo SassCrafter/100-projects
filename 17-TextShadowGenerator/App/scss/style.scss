@@ -75,6 +75,10 @@ $danger-color: red;
     text-transform: uppercase;
 }
 
+.relative {
+    position: relative;
+}
+
 label {
     display: block;
     text-transform: capitalize;
@@ -392,5 +396,37 @@ a {
                 font-size: 1.4rem;
             }
         }
+    }
+
+    .tooltip {
+        padding: .5rem 1rem;
+        background-color: $light-gray;
+        border: 1px solid $border-color;
+        position: absolute;
+        right: 0;
+        top: -4rem;
+        transform: translateY(4rem);
+        opacity: 0;
+        pointer-events: none;
+
+        &.show {
+            //opacity: 1;
+            animation: showTooltip 1000ms linear;
+        }
+
+        span {
+            font-size: 1.4rem;
+        }
+    }
+}
+
+@keyframes showTooltip {
+    50% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 0;
     }
 }

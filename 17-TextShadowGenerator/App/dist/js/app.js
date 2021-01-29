@@ -24,6 +24,10 @@ const shadowOpacityInput = document.getElementById("opacity");
 
 const addShadowBtn = document.getElementById("add-shadow");
 
+const copyToClipboardBtn = document.getElementById('copy-btn');
+
+const firstShadow = document.querySelector('.first-shadow');
+
 let shadowCounter = 2;
 
 const shadows = [DEFAULT_SHADOW];
@@ -88,6 +92,8 @@ const changePreviewContainerBg = (value) => {
   previewContainer.style.backgroundColor = value;
 };
 
+
+// Shadows functions 
 const createShadowObject = () => {
   const shadowObj = {
     id: shadowCounter,
@@ -141,7 +147,7 @@ const removeShadowLi = (e) => {
 };
 
 const updateNewShadowInputs = (obj) => {
-  const { omit, ...shadowProps } = obj;
+  const { ...shadowProps } = obj;
   shadowInputs.forEach((input, idx) => {
     if (input.type === "range") {
       const textPreview = input.previousElementSibling.querySelector("span");
@@ -169,6 +175,7 @@ const renderShadowLi = (hookId) => {
   updateNewShadowInputs(shadowObj);
 
   document.getElementById(hookId).insertBefore(shadowLi, addShadowBtn);
+  shadowLi.addEventListener('click', toggleActiveShadowHandler);
   shadowLi
     .querySelector("#delete-shadow")
     .addEventListener("click", removeShadowLi);
@@ -177,30 +184,19 @@ const renderShadowLi = (hookId) => {
 };
 
 const getTextShadowString = (obj) => {
-  //let str = "";
-  // shadowInputs.forEach((input) => {
-  //   if (input.type === "range" && input.id !== "opacity") {
-  //     str += `${input.value}px `;
-  //   } else if (input.type === "color") {
-  //     str += `${hexToRgba(input.value, shadowOpacityInput.value)}`;
-  //   }
-  // });
   const { hLen, vLen, blurRadius, opacity, shadowColor } = obj;
   return `${hLen}px ${vLen}px ${blurRadius}px ${hexToRgba(
     shadowColor,
     opacity
   )}`;
-  //console.log(str);
 };
 
 const updateTextShadow = () => {
-  //console.log(getTextShadowString(shadowObj));
   let str = "";
   shadows.forEach((shadow, idx) => {
     const prefix = idx === shadows.length - 1 ? "" : ",";
     str += getTextShadowString(shadow) + prefix;
   });
-  //console.log(str);
   previewTextEl.style.textShadow = str;
   updateCode(str);
   return str;
@@ -249,11 +245,45 @@ const updateShadowHandler = (e) => {
   updateTextShadow();
 };
 
+const toggleActiveShadowHandler = (e) => {
+  if (e.target.classList.contains('delete-shadow') || e.target.classList.contains('fas')) return;
+  const shadowEl = e.target.closest('li');
+  const span = shadowEl.querySelector('span');
+  const id = +span.dataset.shnum;
+  const shadowObj = shadows.find(el => el.id === id);
+  updateNewShadowInputs(shadowObj);
+  document.querySelectorAll('.shadows-list li').forEach(el => {
+    el.classList.remove('active');
+  })
+  shadowEl.classList.add('active');
+  console.log(shadowEl);
+}
+
+const copyToClipBoard = (id) => {
+  var r = document.createRange();
+  r.selectNode(document.getElementById(id));
+  window.getSelection().removeAllRanges();
+  window.getSelection().addRange(r);
+  document.execCommand('copy');
+  window.getSelection().removeAllRanges();
+}
+
+const copyHandler = () => {
+  copyToClipBoard('code-string');
+  const tooltip = document.querySelector('.generator__item--code .tooltip');
+  tooltip.classList.add('show');
+  setTimeout(() => {
+    tooltip.classList.remove('show');
+  }, 1000);
+}
+
 // Event Listeners
 
 textInputs.forEach((input) => {
   input.addEventListener("change", textInputHandler);
 });
+
+firstShadow.addEventListener('click', toggleActiveShadowHandler);
 
 shadowInputs.forEach((input) => {
   input.addEventListener("change", updateShadowHandler);
@@ -262,3 +292,5 @@ shadowInputs.forEach((input) => {
 });
 
 addShadowBtn.addEventListener("click", addShadowHanlder);
+
+copyToClipboardBtn.addEventListener('click', copyHandler);
