@@ -1,0 +1,87 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: $font-stack;
+  line-height: 1.3;
+  background-color: $bg-color;
+  color: $text-color;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+// margin
+.mb-5 {
+  margin-bottom: 5rem !important;
+}
+
+.offscreen {
+  position: absolute;
+  top: -3000px;
+  left: -3000px;
+}
+
+.large {
+  font-size: 6rem;
+  letter-spacing: 0.3rem;
+  margin-bottom: 1rem;
+}
+.subheading {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  display: inline-block;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 1.6rem;
+
+  &--submit {
+    display: block;
+    margin-left: auto;
+    font-size: 2.8rem;
+    font-weight: bold;
+
+    i {
+      font-size: 2rem;
+      line-height: 4rem;
+      display: inline-block;
+      width: 6rem;
+      height: 4rem;
+
+      border-radius: 3rem;
+      background-image: linear-gradient(
+        180deg,
+        $first-main-color,
+        $second-main-color
+      );
+      color: white;
+    }
+  }
+}
