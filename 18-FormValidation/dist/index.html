@@ -22,87 +22,86 @@
     <link rel="icon" type="image/png" href="./images/favicon.ico" />
 
     <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/formValidator.js" defer></script>
     <title>Form Validation</title>
   </head>
   <body>
-    <main class="main">
-      <section class="forms">
-        <form class="form form--singup">
-          <h2 class="large">Hello</h2>
-          <p class="subheading">Sign in to your account</p>
+    <section class="signup">
+      <div class="form-wrapper">
+        <h2 class="title">Create a new account</h2>
+        <form class="form form--signup" id="signup-form">
           <div class="form__group">
-            <label for="name-input" class="offscreen">Enter your name</label>
+            <label for="username-input">Username</label>
             <div class="input-group">
-              <i class="fas fa-user-tie input-icon"></i>
               <input
                 type="text"
-                id="name-input"
-                required
-                placeholder="Enter your username"
+                id="username-input"
+                data-type="username"
+                placeholder="sasscrafter"
               />
-            </div>
-          </div>
-          <!-- Form Group End -->
-          <div class="form__group">
-            <label for="email-input" class="offscreen">Enter your email</label>
-            <div class="input-group">
-              <i class="fas fa-envelope input-icon"></i>
-              <input
-                type="text"
-                id="email-input"
-                required
-                placeholder="E-mail"
-              />
-            </div>
-            <!-- Input group end -->
-          </div>
-          <!-- Form Group End -->
-          <div class="form__group">
-            <label for="password-input" class="offscreen"
-              >Enter your password</label
-            >
-            <div class="input-group">
-              <i class="fas fa-lock input-icon"></i>
-              <input
-                type="text"
-                id="password-input"
-                required
-                placeholder="Password"
-              />
-              <div
-                class="show-pass"
-                id="show-pass"
-                role="button"
-                aria-label="show password"
-              >
-                <i class="fas fa-eye"></i>
+
+              <div class="icons">
+                <i class="fas fa-check-circle icon icon--success"></i>
+                <i class="fas fa-exclamation-circle icon icon--error"></i>
               </div>
             </div>
-            <!-- Input group end -->
+            <span class="error-message"></span>
           </div>
-          <!-- Form Group End -->
-          <div class="form__group mb-5">
-            <label for="phone-input" class="offscreen"
-              >Enter your phone number</label
-            >
+          <!-- Form group end -->
+          <div class="form__group">
+            <label for="email-input">Email</label>
             <div class="input-group">
-              <i class="fas fa-lock input-icon"></i>
               <input
-                type="text"
-                id="phone-input"
-                required
-                placeholder="Mobile"
+                type="email"
+                id="email-input"
+                placeholder="sasscrafter@gmail.com"
               />
-            </div>
-            <!-- Input group end -->
-          </div>
-          <!-- Form Group End -->
 
-          <button type="submit" class="btn btn--submit mb-5">
-            Create <i class="fas fa-arrow-right submit-icon"></i>
-          </button>
+              <div class="icons">
+                <i class="fas fa-check-circle icon icon--success"></i>
+                <i class="fas fa-exclamation-circle icon icon--error"></i>
+              </div>
+            </div>
+            <span class="error-message"></span>
+          </div>
+          <!-- Form group end -->
+          <div class="form__group">
+            <label for="password-input">Password</label>
+            <div class="input-group">
+              <input
+                type="password"
+                id="password-input"
+                data-type="password"
+                placeholder="12345678"
+              />
+              <div class="icons">
+                <i class="fas fa-check-circle icon icon--success"></i>
+                <i class="fas fa-exclamation-circle icon icon--error"></i>
+              </div>
+            </div>
+            <span class="error-message"></span>
+          </div>
+          <!-- Form group end -->
+          <div class="form__group">
+            <label for="password-confirm-input">Password confirmation</label>
+            <div class="input-group">
+              <input
+                type="password"
+                id="password-confirm-input"
+                data-type="password-confirm"
+                placeholder="12345678"
+              />
+              <div class="icons">
+                <i class="fas fa-check-circle icon icon--success"></i>
+                <i class="fas fa-exclamation-circle icon icon--error"></i>
+              </div>
+            </div>
+            <span class="error-message"></span>
+          </div>
+          <!-- Form group end -->
+          <button type="submit" class="btn btn--submit">Create account</button>
         </form>
-      </section>
-    </main>
+      </div>
+    </section>
   </body>
 </html>

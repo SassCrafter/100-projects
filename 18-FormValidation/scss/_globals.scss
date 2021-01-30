@@ -33,55 +33,36 @@ a {
   text-decoration: none;
 }
 
-// margin
-.mb-5 {
-  margin-bottom: 5rem !important;
+.title {
+  font-size: 2.2rem;
+  margin-bottom: 3rem;
 }
 
-.offscreen {
-  position: absolute;
-  top: -3000px;
-  left: -3000px;
-}
-
-.large {
-  font-size: 6rem;
-  letter-spacing: 0.3rem;
-  margin-bottom: 1rem;
-}
-.subheading {
-  font-size: 1.8rem;
-  margin-bottom: 2rem;
+.signup {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn {
   display: inline-block;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
   outline: none;
   border: none;
-  cursor: pointer;
-  background-color: transparent;
-  font-size: 1.6rem;
+  transition: opacity $t-time linear;
+
+  &:hover {
+    opacity: 0.8;
+  }
 
   &--submit {
     display: block;
-    margin-left: auto;
-    font-size: 2.8rem;
-    font-weight: bold;
-
-    i {
-      font-size: 2rem;
-      line-height: 4rem;
-      display: inline-block;
-      width: 6rem;
-      height: 4rem;
-
-      border-radius: 3rem;
-      background-image: linear-gradient(
-        180deg,
-        $first-main-color,
-        $second-main-color
-      );
-      color: white;
-    }
+    width: 100%;
+    background-color: $bg-color;
+    color: white;
+    font-size: 1.4rem;
   }
 }
