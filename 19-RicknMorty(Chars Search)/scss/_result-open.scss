@@ -1,0 +1,101 @@
+.result-open {
+  width: 100%;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  background-color: $text-color-dark;
+  opacity: 0;
+  transform: translateY(30vh);
+  pointer-events: none;
+  transition: transform $t-time $t-timing, opacity $t-time $t-timing;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: initial;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+
+  .btn--back {
+    color: $text-color-light;
+    background: transparent;
+    font-size: 2rem;
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
+    line-height: 3rem;
+    transition: transform $t-time $t-timing;
+
+    &:hover {
+      transform: translateX(-1rem);
+    }
+  }
+
+  &__img {
+    width: 100%;
+    max-width: 26.4rem;
+    height: auto;
+    margin-bottom: 2rem;
+    img {
+      width: 100%;
+    }
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__content {
+    & > div:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+    h3 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .status {
+      font-size: 1.5rem;
+      position: relative;
+
+      &::before {
+        content: "";
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        background-color: transparent;
+        display: inline-block;
+      }
+
+      &--alive::before {
+        background-color: $alive-color;
+      }
+      &--dead::before {
+        background-color: $dead-color;
+      }
+      &--unknown::before {
+        background-color: $text-gray;
+      }
+    }
+
+    h5 {
+      font-size: 1.6rem;
+      color: $text-gray;
+      margin-bottom: 1rem;
+    }
+
+    h4 {
+      font-size: 1.8rem;
+    }
+  }
+}

@@ -18,25 +18,7 @@
     <script src="./js/app.js" type="module"></script>
     <title>Rick and Morty | Character search</title>
   </head>
-  <body>
-    <!-- <li class="result">
-      <div class="img-wrapper"></div>
-      <div class="result__content">
-        <div class="result__top">
-          <h3 class="result__title">rick sanchez</h3>
-          <span class="status status--alive">Alive - Human</span>
-        </div>
-        <div class="result__middle">
-          <small class="gray-text">Last known location</small>
-          <h4>Earth (Replacement Dimension)</h4>
-        </div>
-        <div class="result__bottom">
-          <small class="gray-text">First seen in</small>
-          <h4>Pilot</h4>
-        </div>
-      </div>
-    </li> -->
-
+  <body id="body">
     <section class="hero">
       <div class="hero__img">
         <svg width="378" height="376" viewBox="0 0 378 376" fill="black">
@@ -76,6 +58,7 @@
                 <div
                   class="btn btn--clear hidden"
                   id="clear-search-btn"
+                  tabindex="0"
                   aria-label="clear search bar"
                   role="button"
                 >
@@ -89,37 +72,7 @@
           </form>
         </section>
         <!-- Search end -->
-        <section class="results" id="search-results">
-          <!-- <ul class="results__list">
-            <li class="result">
-              <div class="result__img">
-                <img
-                  src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
-                  alt=""
-                />
-              </div>
-              <h2 class="result__title">Rick sanchez</h2>
-            </li>
-            <li class="result">
-              <div class="result__img">
-                <img
-                  src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
-                  alt=""
-                />
-              </div>
-              <h2 class="result__title">Rick sanchez</h2>
-            </li>
-            <li class="result">
-              <div class="result__img">
-                <img
-                  src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
-                  alt=""
-                />
-              </div>
-              <h2 class="result__title">Rick sanchez</h2>
-            </li>
-          </ul> -->
-        </section>
+        <section class="results" id="search-results"></section>
       </div>
     </main>
   </body>

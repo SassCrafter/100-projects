@@ -19,35 +19,69 @@ export default class CharacterList extends Component {
         randomNumArr.push(randomNum);
       }
     }
-    console.log(randomNumArr);
     return randomNumArr;
   }
 
   async getRandomCharacters(quantity) {
     const str = this.searchString + this.getRandomNums(quantity);
-    this.getCharacters(str);
+    this.updateListUI(str);
   }
 
   async getCharacters(searchStr) {
     try {
+      console.log(searchStr);
       const response = await fetch(searchStr);
       if (!response.ok) {
         console.log("error");
         throw new Error("Network response was not ok");
       }
       const charsData = await response.json();
-      charsData.forEach((char) => {
-        this.charactersList.push(new CharacterCard("characters-list", char));
-      });
-      console.log(this.charactersList);
+      console.log(charsData);
+      return charsData;
     } catch (error) {
       console.log(error);
     }
+  }
+
+  async updateListUI(searchStr) {
+    this.removeCharacterCards();
+    const characters = await this.getCharacters(searchStr);
+    if (!characters.results) {
+      characters.forEach((char) => {
+        this.charactersList.push(new CharacterCard("characters-list", char));
+      });
+    } else {
+      characters.results.forEach((char) => {
+        this.charactersList.push(new CharacterCard("characters-list", char));
+      });
+    }
+  }
+
+  removeCharacterCards() {
+    const cards = document.querySelectorAll(".result");
+    if (cards) {
+      cards.forEach((card) => card.remove());
+    }
+  }
+
+  showCharecterInfo(id) {
+    console.log(id);
+    const clickedCardData = this.charactersList.find(
+      (el) => el.characterData.id === +id
+    );
+    CharacterCard.displayCharacterInfo(clickedCardData);
+    console.log(clickedCardData);
+  }
+
+  handleClick(e) {
+    const clickedCardId = e.target.closest("li.result").dataset.id;
+    this.showCharecterInfo(clickedCardId);
   }
 
   render() {
     const list = this.createRootElement("ul", "results__list", [
       { name: "id", value: "characters-list" },
     ]);
+    list.addEventListener("click", this.handleClick.bind(this));
   }
 }

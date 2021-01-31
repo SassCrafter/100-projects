@@ -1,19 +1,11 @@
 import CharacterList from "./characterList.js";
+import SearchBar from "./searchBar.js";
 
-// const getCharacter = async () => {
-//   try {
-//     const response = await fetch("https://rickandmortyapi.com/api/character");
-//     if (!response.ok) {
-//       console.log("error");
-//       throw new Error("Network response was not ok");
-//     }
-//     const data = await response.json();
-//     console.log(data);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+class App {
+  static init() {
+    const list = new CharacterList("search-results");
+    const searchBar = new SearchBar("search-form", list);
+  }
+}
 
-//getCharacter();
-
-const list = new CharacterList("search-results");
+App.init();
