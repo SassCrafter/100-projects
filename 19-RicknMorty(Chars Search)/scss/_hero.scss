@@ -1,0 +1,67 @@
+.hero {
+  width: 100%;
+  height: 30vh;
+  background-color: $text-color-light;
+  position: relative;
+
+  @include mq(768px) {
+    height: 40vh;
+  }
+  @include mq(900px) {
+    height: 50vh;
+  }
+
+  &__img {
+    svg {
+      width: 15rem;
+      height: auto;
+      object-fit: cover;
+      position: absolute;
+      //    top: -20%;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0.05;
+
+      @include mq(768px) {
+        width: 20rem;
+      }
+      @include mq(900px) {
+        width: 25rem;
+      }
+    }
+  }
+
+  &__text {
+    max-width: 50rem;
+    @include mq(900px) {
+      max-width: 80rem;
+    }
+  }
+
+  &__content {
+    height: 100%;
+    position: relative;
+    z-index: 3;
+    color: $text-color-dark;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    h1 {
+      font-size: 2.2rem;
+      letter-spacing: 0.2rem;
+
+      @include mq(375px) {
+        font-size: 2.6rem;
+      }
+      @include mq(768px) {
+        font-size: 4rem;
+      }
+      @include mq(900px) {
+        font-size: 6rem;
+      }
+    }
+  }
+}
