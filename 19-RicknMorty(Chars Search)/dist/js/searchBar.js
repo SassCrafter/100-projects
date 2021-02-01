@@ -13,7 +13,6 @@ export default class SearchBar {
       this.charList.searchString
     }?name=${this.searchBarInput.value.trim()}`;
     this.clearInput();
-    console.log(searchTerm);
     this.charList.updateListUI(searchTerm);
   }
 
@@ -22,7 +21,7 @@ export default class SearchBar {
     if (value) {
       this.clearButton.classList.remove("hidden");
     } else {
-      this.searchBarclearButton.classList.add("hidden");
+      this.clearButton.classList.add("hidden");
     }
   }
 

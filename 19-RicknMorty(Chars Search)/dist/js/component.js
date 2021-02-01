@@ -3,7 +3,7 @@ export default class Component {
     this.hookId = hookId;
   }
 
-  createRootElement(tag, classNames, attr) {
+  createRootElement(tag, classNames, attr, beforeElId) {
     const rootEl = document.createElement(tag);
     if (classNames) rootEl.className = classNames;
     if (attr) {
@@ -11,7 +11,22 @@ export default class Component {
         rootEl.setAttribute(attr.name, attr.value);
       });
     }
-    document.getElementById(this.hookId).appendChild(rootEl);
+    if (beforeElId) {
+      document.getElementById(this.hookId).insertBefore(rootEl, document.getElementById(beforeElId));
+    } else {
+      document.getElementById(this.hookId).appendChild(rootEl);
+    }
     return rootEl;
+  }
+
+  animateRootEl(el, className, time) {
+    setTimeout(() => {
+      el.classList.add(className);
+    }, time);
+  }
+  removeRootEl(el, time) {
+    setTimeout(() => {
+      el.remove();
+    }, time);
   }
 }

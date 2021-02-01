@@ -18,9 +18,7 @@ export default class CardOpen extends Component {
     const cardOpenEl = document.querySelector(".result-open");
     cardOpenEl.classList.remove("visible");
     this.toggleScroll();
-    setTimeout(() => {
-      cardOpenEl.remove();
-    }, 300);
+    this.removeRootEl(cardOpenEl, 300);
   }
 
   checkCharacterStatus(status) {
@@ -77,12 +75,7 @@ export default class CardOpen extends Component {
         </div>
        </div>
       `;
-    setTimeout(() => {
-      cardOpenEl.classList.add("visible");
-    }, 200);
-    // cardOpenEl.addEventListener("click", (e) => {
-    //   console.log(e.target);
-    // });
+    this.animateRootEl(cardOpenEl, 'visible', 200);
     const backBtn = cardOpenEl.querySelector("#close-btn");
     console.log(backBtn);
     backBtn.addEventListener("click", this.closeCard.bind(this));

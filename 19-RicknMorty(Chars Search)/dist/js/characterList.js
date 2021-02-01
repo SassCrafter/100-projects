@@ -1,3 +1,4 @@
+import App from './app.js';
 import Component from "./component.js";
 import CharacterCard from "./charaterCard.js";
 import { getRandomNumber } from "./helperFunctions.js";
@@ -8,7 +9,7 @@ export default class CharacterList extends Component {
   constructor(hookId) {
     super(hookId);
     this.render();
-    this.getRandomCharacters(10);
+    this.getRandomCharacters(100);
   }
 
   getRandomNums(quantity) {
@@ -22,6 +23,12 @@ export default class CharacterList extends Component {
     return randomNumArr;
   }
 
+  toggleLoader() {
+    const loader = document.getElementById(this.toggleId);
+    loader.classList.toggle('visible');
+
+  }
+
   async getRandomCharacters(quantity) {
     const str = this.searchString + this.getRandomNums(quantity);
     this.updateListUI(str);
@@ -29,14 +36,12 @@ export default class CharacterList extends Component {
 
   async getCharacters(searchStr) {
     try {
-      console.log(searchStr);
       const response = await fetch(searchStr);
       if (!response.ok) {
         console.log("error");
         throw new Error("Network response was not ok");
       }
       const charsData = await response.json();
-      console.log(charsData);
       return charsData;
     } catch (error) {
       console.log(error);
@@ -45,7 +50,10 @@ export default class CharacterList extends Component {
 
   async updateListUI(searchStr) {
     this.removeCharacterCards();
+    //this.toggleLoader();
+    App.showLoader();
     const characters = await this.getCharacters(searchStr);
+    App.removeLoader();
     if (!characters.results) {
       characters.forEach((char) => {
         this.charactersList.push(new CharacterCard("characters-list", char));
@@ -55,6 +63,7 @@ export default class CharacterList extends Component {
         this.charactersList.push(new CharacterCard("characters-list", char));
       });
     }
+    //this.toggleLoader();
   }
 
   removeCharacterCards() {

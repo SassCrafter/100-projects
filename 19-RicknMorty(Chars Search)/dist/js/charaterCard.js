@@ -20,7 +20,7 @@ export default class CharacterCard extends Component {
     ]);
     liEl.innerHTML = `
     <div class="result__img">
-        <img src="${this.characterData.image}" alt=""/>
+        <img src="${this.characterData.image}" alt="${this.characterData.name}" loading='lazy'/>
     </div>
     <h2 class="result__title">${this.characterData.name}</h2>
     `;
